@@ -1,0 +1,991 @@
+.guide-draco {
+  .contents {
+    padding-top: 64px;
+  }
+
+  .list-connect-process {
+    padding-bottom: 80px;
+
+    .v-window-item {
+      .v-image {
+        color: var(--content-color);
+
+        img {
+          display: block;
+          max-width: 100%;
+        }
+
+        .desc {
+          margin-top: 16px;
+          text-align: center;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .v-carousel__controls {
+      position: static;
+      margin-top: 30px;
+      height: auto;
+
+      .v-carousel__controls__item {
+        margin: 0 1px;
+
+        .v-icon {
+          opacity: .2;
+          font-size: 12px !important;
+        }
+
+        &.v-item--active {
+          &::before {
+            opacity: 0;
+          }
+
+          .v-icon {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .v-carousel__controls {
+      display: none;
+    }
+  }
+
+  .derby {
+    margin-top: 64px;
+    padding: 64px 0;
+    background-color: #1c0032;
+
+    .description {
+      margin-top: 24px;
+    }
+  }
+
+  .guide-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 400px;
+    line-height: 1.43;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      background: url('~@/assets/img/mobile/draco/bg-bottom.webp') 50% 0 / auto 100% no-repeat;
+    }
+
+    &__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .bi {
+      margin-bottom: 14px;
+      width: 188px;
+      height: 58px;
+      font-size: 0;
+      background: url('~@/assets/img/mobile/bi-mir4.png') 50% 0 / auto 100% no-repeat;
+    }
+
+    .wrap-link {
+      margin-top: 46px;
+
+      .link {
+        display: block;
+        margin-top: 8px;
+        width: 189px;
+        height: 56px;
+        line-height: 0;
+        font-size: 0;
+        background-position: 0 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+
+        &.google {
+          background-image: url('~@/assets/img/mobile/btn-googleplay.webp');
+        }
+
+        &.apple {
+          background-image: url('~@/assets/img/mobile/btn-appstore.webp');
+        }
+      }
+    }
+  }
+
+  .wrap-image {
+    margin: 24px 0 8px;
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    &.by-viewer {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 48px;
+        height: 48px;
+        background: url('~@/assets/img/mobile/draco/btn-viewer.webp') 0 0 / cover no-repeat;
+      }
+    }
+  }
+
+  .desc-info {
+    position: relative;
+    margin-top: 40px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #fff;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 16px;
+      height: 16px;
+      margin-bottom: 4px;
+      background: url('~@/assets/img/desktop/draco/icon-info.webp') 0 0 / cover no-repeat;
+    }
+  }
+
+  .trinity-area {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin-top: 40px;
+    padding: 24px;
+    background-color: rgb(255 255 255 / 5%);
+
+    .trinity-info {
+      width: 100%;
+
+      .trinity-title {
+        position: relative;
+        padding-left: 30px;
+        font-weight: 500;
+        color: #fff;
+
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 3px;
+          left: 0;
+          width: 22px;
+          height: 21px;
+          background: url('~@/assets/img/desktop/draco/icon-trinity.webp') 0 0 / cover no-repeat;
+        }
+      }
+
+      .trinity-desc {
+        position: relative;
+        margin-top: 8px;
+        line-height: 24px;
+        font-size: 14px;
+        color: rgb(255 255 255 / 50%);
+      }
+    }
+
+    .trinity-circle {
+      position: relative;
+      width: 231px;
+      height: 220px;
+      background: url('~@/assets/img/desktop/draco/img-triangulation.webp') 0 0 / cover no-repeat;
+
+      span {
+        position: absolute;
+        font-size: 12px;
+        color: #fff;
+        background-color: transparent !important;
+
+        &.green {
+          top: 47px;
+          left: 21px;
+        }
+
+        &.blue {
+          top: 47px;
+          right: 21px;
+        }
+
+        &.red {
+          bottom: 31px;
+          left: calc(50%);
+          transform: translateX(-50%);
+        }
+
+        &.white {
+          top: 87px;
+          left: calc(50%);
+          transform: translateX(-50%);
+          color: #000;
+        }
+      }
+    }
+
+    a {
+      display: inline-block;
+      place-self: flex-start;
+      position: relative;
+      padding-left: 31px;
+      margin-top: 16px;
+      font-size: 14px;
+      color: #fff;
+      text-decoration: none;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 3px;
+        left: 0;
+        width: 23px;
+        height: 16px;
+        background: url('~@/assets/img/desktop/draco/icon-youtube.webp') 0 0 / cover no-repeat;
+      }
+    }
+  }
+
+  &.smeltery {
+    h3 {
+      &.title {
+        margin-bottom: 24px;
+      }
+    }
+
+    p {
+      line-height: 22px;
+      font-size: 14px;
+    }
+
+    .derby {
+      background: #1c0032 !important;
+    }
+  }
+
+  &#guideStep {
+    .description {
+      .text-center {
+        margin-top: 8px;
+        font-size: 12px;
+        line-height: 28px;
+      }
+    }
+
+    dl {
+      margin: 24px 0;
+
+      dd {
+        p {
+          margin-bottom: 0;
+          margin-top: 8px;
+          padding: 0;
+          line-height: 20px;
+        }
+
+      }
+    }
+
+    .wrap-image {
+      margin-top: 8px;
+    }
+  }
+}
+
+.v-application {
+  .intro-draco {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: #060012;
+
+    &::after {
+      display: none !important;
+    }
+
+    .section {
+      z-index: 1;
+      max-width: 640px;
+      width: 100%;
+      margin: 80px 0 0;
+      padding: 0 24px;
+      box-sizing: border-box;
+
+      &.mt-64 {
+        margin-top: 64px;
+      }
+
+      &.full-width {
+        max-width: 100%;
+        margin-top: 24px;
+
+        .derby {
+          height: auto;
+          min-height: 404px;
+          box-sizing: border-box;
+          margin: 0;
+          padding: 64px 24px;
+
+          .display-price {
+            dt {
+              font-size: 14px;
+            }
+
+            dd {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+
+      &.solo {
+        margin-top: 0;
+
+        .description {
+          margin: 24px 0 0;
+        }
+      }
+
+      .no-gutter {
+        position: relative;
+        left: 50% !important;
+        transform: translateX(-50%);
+        width: calc(100% + 48px) !important;
+        max-width: none;
+      }
+
+      .wrap-youtube {
+        position: relative;
+        margin-top: 68px;
+        padding-top: 0;
+        height: 0;
+        transition: padding 0.3s;
+
+
+        &.wrap-video--open {
+          .inner {
+            padding-top: 56.25% !important;
+          }
+        }
+
+        iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        &.no-gutter {
+          left: 50% !important;
+          transform: translateX(-50%);
+          padding-top: 0;
+          width: calc(100% + 48px) !important;
+          height: auto;
+
+          .inner {
+            position: relative;
+            padding: 0;
+            transition: padding 1s;
+          }
+        }
+      }
+
+      h3 {
+        &.title {
+          font-size: 28px !important;
+          line-height: 32px;
+        }
+      }
+
+      .derby-title {
+        &.title {
+          width: 327px;
+          margin: 0 auto 40px;
+          font-size: 28px !important;
+          line-height: 40px;
+        }
+      }
+
+      h4 {
+        &.title {
+          margin: 64px 0 16px;
+          font-size: 20px !important;
+          line-height: 32px;
+          color: #fff;
+
+          &.mt-40 {
+            margin-top: 40px;
+          }
+
+          &.mt-80 {
+            margin-top: 80px;
+          }
+        }
+      }
+
+      .description {
+        p {
+          margin-bottom: 16px;
+          line-height: 22px;
+          font-size: 14px;
+
+          &.small {
+            font-size: 12px;
+          }
+
+          span {
+            color: #fff;
+          }
+        }
+
+        .trinity-area {
+          margin-top: 24px;
+
+          .trinity-desc {
+            p {
+              padding: 0;
+            }
+          }
+        }
+
+        dl {
+          margin-bottom: 24px;
+        }
+
+        dt {
+          font-size: 14px;
+          line-height: 28px;
+          margin-bottom: 0;
+          color: #fff;
+        }
+
+        dd {
+          font-size: 14px;
+          line-height: 22px;
+        }
+
+        .img-center {
+          display: block;
+          margin: 0 auto 32px;
+        }
+
+        .link-type1 {
+          display: inline-block;
+          position: relative;
+          margin-top: 9px;
+          padding-right: 13px;
+          line-height: 18px;
+          font-size: 14px;
+          color: #fff;
+          text-decoration: none;
+
+          &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: calc(100% - 13px);
+            height: 1px;
+            background-color: #fff;
+          }
+
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 6px;
+            right: 0;
+            width: 9px;
+            height: 9px;
+            background: url('~@/assets/img/desktop/draco/icon-link.webp') 50% 0 / cover no-repeat;
+          }
+        }
+      }
+    }
+
+    // 상단 배경
+    &::before {
+      content: "";
+      position: absolute;
+      top: 55px;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 640px;
+      background: url("~@/assets/img/mobile/draco/main-bg.webp") 50% 0 / auto (1280 / 2 + px) no-repeat;
+      opacity: 0;
+      transform: translateY(-40px);
+      transition: opacity 1200ms 0.2s ease-in-out, transform 1200ms ease-out;
+    }
+
+    // 하단 배경
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 201px;
+
+      // background: url('~@/assets/img/mobile/draco/footer-bg.webp') 50% 0 / auto 100% repeat-x;
+      background: url("~@/assets/img/mobile/draco/footer-bg.webp") 50% 0 / cover no-repeat;
+    }
+
+    &__inner {
+      position: relative;
+      z-index: 1;
+      line-height: 1.75;
+      font-size: 24px;
+    }
+
+    // 하단 플로팅 영역
+    .float-bottom {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 5;
+      width: 100%;
+      height: clamp(96px, 96px, 96px) !important;
+      background-color: #200039;
+
+      //transform: translateY(var(--intro-draco-float-height));
+      transition: transform 500ms 0.5s ease;
+
+      .v-window__container,
+      .v-carousel__item {
+        height: inherit !important;
+      }
+
+      .coin {
+        //padding: 0 calc(var(--intro-draco-padding) / 2);
+        line-height: 1.33;
+        font-size: 14px;
+        color: #fff;
+        text-align: center;
+
+        > a {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        &__name {
+          // flex: 1;
+          display: inline-block;
+          margin-right: 8px;
+          line-height: 1.3;
+          font-size: 12px;
+          color: var(--content-color);
+          vertical-align: middle;
+          text-align: left;
+
+          span {
+            font-size: 10px;
+            font-weight: normal;
+          }
+
+          .name {
+            line-height: 1.35;
+            font-weight: 700;
+            color: #fff;
+          }
+        }
+
+        &__volume {
+          // flex: 1;
+          // display: flex;
+          display: inline-flex;
+          justify-content: flex-end;
+          align-items: center;
+          vertical-align: middle;
+
+          .amount {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            line-height: 1.13;
+            font-size: 24px;
+
+            &::before {
+              display: block;
+              margin-right: 4px;
+              width: 24px;
+              height: 24px;
+            }
+
+            &.wemix {
+              &::before {
+                content: "";
+                background: url("~@/assets/img/mobile/symbol-wemix.webp") 0 0 / cover no-repeat;
+              }
+            }
+
+            &.wemix-credit {
+              &::before {
+                content: "";
+                background: url("~@/assets/img/mobile/symbol-wemixcredit.webp") 0 0 / cover no-repeat;
+              }
+            }
+
+            &.draco {
+              &::before {
+                content: "";
+                background: url("~@/assets/img/mobile/symbol-draco.webp") 0 0 / cover no-repeat;
+              }
+            }
+          }
+
+          .sup {
+            line-height: 1.75;
+            font-weight: 700;
+            font-size: 12px;
+          }
+
+          .change {
+            @include volume-change(
+              $height: 22px,
+              $font-size: 12px,
+              $padding: 4px
+            );
+
+            margin-left: 8px;
+            font-weight: 700;
+          }
+        }
+
+        &__date {
+          margin-top: 10px;
+          line-height: 18px;
+          font-size: 12px;
+          color: rgba(#fff, 0.5);
+          text-align: center;
+        }
+      }
+    }
+
+    .define {
+      margin-top: 298px;
+      opacity: 0;
+      transition: opacity 500ms 1.2s ease-in;
+
+      &::before {
+        content: "";
+        display: block;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 343px;
+        height: 208px;
+        font-size: 0 !important;
+        background: url("~@/assets/img/mobile/draco/bi-draco.webp") 50% 50% / cover no-repeat;
+        box-sizing: content-box;
+      }
+
+      h2 {
+        margin-top: -20px;
+        padding: 0 20px;
+        font-size: 24px;
+        line-height: 28px;
+        text-align: center;
+        color: #fff;
+      }
+    }
+
+    .desc-define {
+      margin-top: 40px;
+      line-height: 24px;
+      text-align: center;
+      font-weight: bold;
+      color: rgba($color: #fff, $alpha: 75%);
+    }
+
+    .derby {
+      flex-direction: column;
+      margin-bottom: -16px;
+      padding: 0;
+      height: 480px;
+      background: url("~@/assets/img/mobile/draco/derby-bg.webp") 50% 50% / auto 100% no-repeat;
+
+      .display-price {
+        margin-bottom: 40px;
+        flex: none;
+
+        dt {
+          display: block;
+          line-height: 1.188;
+          font-size: 16px;
+          font-weight: 700;
+          text-align: center;
+          min-height: auto;
+        }
+
+        dd {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 16px 0 8px;
+          line-height: 1.17;
+          font-weight: 700;
+        }
+
+        .amount {
+          display: flex;
+          line-height: 1.4;
+          font-size: 40px;
+        }
+
+        .sup {
+          top: -0.9em;
+        }
+
+        .change {
+          padding: 0 6px;
+
+          &.plus {
+            background-color: #1b4;
+          }
+          &.minus {
+            background-color: #f13;
+          }
+        }
+      }
+    }
+
+    .process {
+      margin-top: 64px;
+      margin-bottom: 24px; // 이미지 수정에 따라 조정 가능
+      height: 649px;
+      font-size: 0;
+      background: url("~@/assets/img/mobile/draco/infograph-exchange.webp") 50% 50% / auto 100% no-repeat;
+    }
+
+    .wrap-exchange {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .exchange {
+        display: flex;
+        flex-direction: column;
+        row-gap: 4px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2px;
+        width: calc(50% - 2px);
+        height: 80px;
+        background-color: rgba(#fff, .05);
+        text-decoration: none;
+
+        img {
+          display: block;
+        }
+
+        &:nth-child(even) {
+          width: 50%;
+        }
+      }
+
+      .nation {
+        font-size: 10px;
+        color: #fff;
+        line-height: normal;
+      }
+    }
+
+    .formula {
+      margin-top: 48px;
+      margin-bottom: 96px;
+      line-height: 1.5;
+      font-size: 12px;
+      text-align: center;
+
+      img {
+        display: block;
+        width: 288px;
+        margin: 0 auto 24px;
+      }
+
+      p {
+        line-height: 18px !important;
+      }
+    }
+
+    .v-expansion-panels {
+      border-radius: 0;
+
+      .v-expansion-panel {
+        margin-top: 4px;
+        color: #fff;
+        background-color: rgba(#fff, 0.05);
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+
+        .v-icon {
+          &::before {
+            content: "";
+            font-size: 0;
+            width: 40px;
+            height: 40px;
+            background: url("~@/assets/img/mobile/draco/btn-arrow-expension.webp") 50% 50% / auto 100% no-repeat;
+          }
+        }
+      }
+
+      .v-expansion-panel-header {
+        padding: 12px 12px 12px 32px;
+        height: 64px;
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .v-expansion-panel-content {
+        line-height: 1.75;
+        font-size: 16px;
+        color: var(--content-color);
+      }
+
+      .v-expansion-panel-content__wrap {
+        padding: 32px;
+        padding-top: 13px;
+        font-size: 14px;
+      }
+
+      .wrap-image {
+        margin-top: 40px;
+        text-align: right;
+
+        img {
+          display: inline-block;
+          vertical-align: top;
+        }
+      }
+    }
+
+    // when init App
+    .init-app & {
+      &::before {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .define {
+        opacity: 1;
+      }
+    }
+
+    // for only intro-draco
+    .init-intro-draco & {
+      .float-bottom {
+        transform: translateY(0);
+      }
+    }
+
+    .desc-info {
+      position: relative;
+      margin-top: 24px;
+      line-height: 20px;
+      font-size: 12px;
+      color: #fff;
+
+      &::before {
+        content: '';
+        display: block;
+        width: 16px;
+        height: 16px;
+        margin-bottom: 4px;
+        background: url('~@/assets/img/desktop/draco/icon-info.webp') 0 0 / cover no-repeat;
+      }
+    }
+
+    .trinity-area {
+      padding: 24px;
+      background-color: rgb(255 255 255 / 5%);
+
+      .trinity-title {
+        position: relative;
+        padding-left: 30px;
+        font-weight: 500;
+        color: #fff;
+
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          width: 22px;
+          height: 21px;
+          background: url('~@/assets/img/desktop/draco/icon-trinity.webp') 0 0 / cover no-repeat;
+        }
+      }
+
+      .trinity-desc {
+        position: relative;
+        margin-top: 8px;
+        line-height: 24px;
+        font-size: 14px;
+        color: rgb(255 255 255 / 50%);
+      }
+
+      a {
+        display: inline-block;
+        position: relative;
+        padding-left: 31px;
+        margin-top: 16px;
+        font-size: 14px;
+        color: #fff;
+        text-decoration: none;
+
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 3px;
+          left: 0;
+          width: 23px;
+          height: 16px;
+          background: url('~@/assets/img/desktop/draco/icon-youtube.webp') 0 0 / cover no-repeat;
+        }
+      }
+    }
+
+    + .footer {
+      margin-bottom: var(--intro-draco-float-height) !important;
+      width: 100%;
+      background-color: #0b0b2c;
+
+      &__inner {
+        width: 100%;
+        max-width: 640px;
+      }
+    }
+  }
+}

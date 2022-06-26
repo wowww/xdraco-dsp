@@ -1,0 +1,370 @@
+//구매 다이얼 로그. popup으로 이동해야하는지 문의.
+.dialog-item-buy {
+  //max-width: 720px !important; //디자인 우선 인가. 기본값 Max640이 우선인가?
+  &.theme-dark {
+    background-image: -webkit-linear-gradient(42deg, #110036 27%, #120d4e 62%, #00053a 100%);
+    background-image: -o-linear-gradient(42deg, #110036 27%, #120d4e 62%, #00053a 100%);
+    background-image: linear-gradient(132deg, #110036 27%, #120d4e 62%, #00053a 100%);
+    color: #fff;
+
+    .content {
+      color: rgba(#fff, 0.75);
+    }
+  }
+  &.bg-point {
+    background: url('~@/assets/img/desktop/popup/bg-winner-light.webp') 50% 50% / cover no-repeat,
+      linear-gradient(132deg, #110036 27%, #120d4e 62%, #00053a 100%);
+  }
+  .content {
+    padding: 32px;
+  }
+  .dialog-header {
+    margin: -32px -32px 0;
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(#fff, 0.1);
+
+    .title {
+      font-size: 16px !important;
+      font-weight: 700;
+      margin: 0;
+      color: #fff;
+    }
+  }
+
+  .item-content {
+    width: 100%;
+
+    .wrap-central {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-top: 24px;
+    }
+    .wrap-charinfo {
+      display: block;
+      flex-direction: initial;
+      align-items: initial;
+      flex: 0 0 132px;
+      text-align: center;
+      padding-top: 24px;
+
+      .char {
+        min-height: 136px;
+        line-height: normal;
+        font-size: 12px;
+        color: #ffffff50;
+        text-align: center;
+
+        .nick {
+          display: block;
+          font-size: 16px;
+          color: #fff;
+          margin-top: 4px;
+        }
+        .server {
+          display: block;
+          margin-top: 2px;
+          letter-spacing: -0.12px;
+        }
+      }
+      .credit-info {
+        border-top: 1px solid rgba(#fff, 0.1);
+        margin-top: 24px;
+        padding-top: 24px;
+        text-align: left;
+
+        .category {
+          font-size: 12px;
+          font-weight: normal;
+          letter-spacing: -0.12px;
+          line-height: normal;
+          color: #fff;
+        }
+        .info {
+          margin-top: 4px;
+          line-height: normal;
+
+          span[class^='ico-'] {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: normal;
+            color: #fff;
+            white-space: normal;
+            word-break: break-all;
+            word-wrap: break-word;
+
+            &.add-inside::before {
+              top: 0px;
+              transform: none;
+            }
+          }
+        }
+      }
+    }
+
+    .item-detail {
+      flex: 1;
+      margin-left: 40px;
+
+      .wrap-detail {
+        width: 100%;
+        padding: 24px;
+        background-color: rgba(1, 1, 12, 0.25);
+
+        .list {
+          padding: 0;
+          margin: 0;
+          list-style: none;
+          width: 100%;
+          li {
+            position: relative;
+            padding-left: 16px;
+
+            &::before {
+              content: '';
+              position: absolute;
+              left: 4px;
+              top: 9px;
+              width: 3px;
+              height: 3px;
+              border-radius: 100%;
+              background-color: rgba(#fff, 0.75);
+            }
+
+            font-size: 12px;
+            font-weight: normal;
+            line-height: 2;
+            letter-spacing: -0.12px;
+            color: rgba(#fff, 0.75);
+
+          }
+        }
+        .detail-card {
+          margin-top: 16px;
+
+          .card {
+            margin: 0 auto;
+          }
+          .price {
+            display: block;
+            margin-top: 16px;
+            text-align: center;
+
+            .ico-darco {
+              font-size: 32px;
+              letter-spacing: -0.64px;
+              color: #fff;
+              line-height: 1;
+            }
+            .rate {
+              display: block;
+              margin-top: 4px;
+              font-size: 14px;
+              font-weight: normal;
+              line-height: normal;
+              color: rgba(#fff, 0.5);
+            }
+          }
+        }
+        .wrap-button {
+          margin-top: 16px;
+          .btn {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  .itembuy-content {
+    .wrap-card {
+      text-align: center;
+
+      .title {
+        font-size: 20px !important;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-top: 24px;
+        color: #fff;
+      }
+
+      .detail-card {
+        margin-top: 24px;
+
+        .card {
+          margin: 0 auto;
+        }
+      }
+
+      .price {
+        display: block;
+        margin-top: 24px;
+        text-align: center;
+        color: #fff;
+
+        .ico-darco {
+          font-size: 24px;
+          letter-spacing: -0.48px;
+          line-height: 1;
+        }
+        .rate {
+          display: block;
+          margin-top: 4px;
+          font-size: 12px;
+          font-weight: normal;
+          line-height: normal;
+          color: #fff;
+        }
+      }
+      .detail-desc {
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 1.71;
+        color: #fff;
+        padding: 24px 0;
+      }
+    }
+    .wrap-button {
+      margin-top: 24px;
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.dialog-item-regi {
+  max-width: 720px !important;
+
+  &.theme-dark {
+    background-image: -webkit-linear-gradient(42deg, #110036 27%, #120d4e 62%, #00053a 100%);
+    background-image: -o-linear-gradient(42deg, #110036 27%, #120d4e 62%, #00053a 100%);
+    background-image: linear-gradient(132deg, #110036 27%, #120d4e 62%, #00053a 100%);
+    color: #fff;
+
+    .content {
+      color: rgba(#fff, 0.75);
+    }
+  }
+  .content {
+    padding: 32px;
+  }
+  .dialog-header {
+    margin: -32px -32px 0;
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(#fff, 0.1);
+
+    .title {
+      font-size: 16px !important;
+      font-weight: 700;
+      margin: 0;
+      color: #fff;
+    }
+  }
+  .item-content {
+    width: 100%;
+
+    .wrap-cardinfo {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 32px;
+      background-color: rgba(1, 1, 12, 0.25);
+
+      .card-detail {
+        display: block;
+        flex-direction: initial;
+        align-items: initial;
+        flex: 0 0 260px;
+        text-align: center;
+        padding-top: 24px;
+
+        .card {
+          margin: 0 auto;
+        }
+      }
+      .item-detail {
+        flex: 1;
+        padding: 24px;
+
+        .item-manual {
+          .item-title {
+            font-size: 24px;
+          }
+          .item-subtitle {
+            font-size: 14px;
+            color: rgba(#fff, 0.5);
+          }
+        }
+
+        .credit-info {
+          margin-top: 32px;
+          text-align: left;
+          .category {
+            font-size: 12px;
+            font-weight: normal;
+            letter-spacing: -0.12px;
+            line-height: normal;
+            color: rgba(#fff, 0.5);
+          }
+          .info {
+            margin-top: 4px;
+            line-height: normal;
+
+            span[class^='ico-'] {
+              margin: 0;
+              font-size: 32px;
+              font-weight: 700;
+              line-height: normal;
+              letter-spacing: -0.64px;
+              color: #fff;
+              white-space: normal;
+              word-break: break-all;
+              word-wrap: break-word;
+
+              &.add-inside::before {
+                top: 2px;
+                transform: none;
+              }
+            }
+          }
+        }
+
+        .list {
+          margin: 16px 0 0;
+          padding: 16px 0 0;
+          list-style: none;
+          width: 100%;
+          border-top: 1px solid rgba(#fff, 0.15);
+
+          li {
+            position: relative;
+            padding-left: 16px;
+            font-size: 12px;
+            font-weight: normal;
+            line-height: 1.67;
+            color: rgba(#fff, 0.5);
+
+            &::before {
+              content: '';
+              position: absolute;
+              left: 4px;
+              top: 8px;
+              width: 3px;
+              height: 3px;
+              border-radius: 100%;
+              background-color: rgba(#fff, 0.75);
+            }
+          }
+        }
+      }
+    }
+
+    .wrap-button {
+      margin-top: 32px;
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+}

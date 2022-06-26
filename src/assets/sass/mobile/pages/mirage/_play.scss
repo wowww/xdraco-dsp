@@ -1,0 +1,15 @@
+.mirage {
+  .mirage-play {
+    margin-right: 0;
+    margin-left: 0;
+    padding-bottom: 80px;
+    max-width: none;
+    width: 100%;
+    background: #04081c url("~@/assets/img/mobile/mirage/bg-mirage-play.jpg") 50% 0 / 640px auto no-repeat;
+    background-attachment: fixed;
+
+    & + .footer {
+      margin-top: 0 !important;
+    }
+  }
+}

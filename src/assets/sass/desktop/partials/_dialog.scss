@@ -1,0 +1,178 @@
+.v-dialog {
+  border-radius: 0;
+  background-color: #fff;
+  width: 100%;
+
+  .btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    .v-btn__content {
+      opacity: 1 !important;
+    }
+  }
+  .content {
+    position: relative;
+    padding: 24px;
+    color: #000;
+    font-size: 20px;
+  }
+
+  // for login
+  &.wemix-login {
+    width: 500px;
+    height: 800px;
+  }
+
+  // in Recently trated
+  &.dialog-card {
+    overflow: visible;
+    width: auto;
+    background-color: transparent;
+    box-shadow: none;
+
+    .v-card {
+      background-color: inherit;
+      box-shadow: inherit;
+    }
+    .btn-close-dialog {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 16px auto 0;
+      border-radius: 50% !important;
+      width: 44px;
+      height: 44px;
+      font-size: 0;
+      background-color: rgba(#fff, 0.3);
+
+      &::before {
+        content: "";
+        display: block;
+        width: 12px;
+        height: 12px;
+        background: url("~@/assets/img/common/btn-close-dialog.webp") 50% 0 /
+          cover no-repeat;
+      }
+    }
+  }
+
+  // Scan QR wemix wallet
+  &.wemix-qr-wrap {
+    .dialog-header {
+      margin: -24px -24px 0;
+    }
+    .nft-buy-qr {
+      font-weight: 500;
+  
+      .contents-center {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+  
+        .title {
+          width: 112px;
+          height: 48px;
+          background: url("~@/assets/img/common/nft-detail/title_qr.webp") 0 0 /
+            100% auto no-repeat;
+          font-size: 0 !important;
+        }
+        .desc {
+          margin-top: 15px;
+          font-size: 14px;
+        }
+        .count {
+          margin-top: 3px;
+          font-size: 16px;
+  
+          span {
+            font-weight: 800;
+            color: #ee0000;
+          }
+        }
+        .qrcode-area {
+          width: 300px;
+          height: 300px;
+          margin: 3px 0 7px;
+          box-sizing: border-box;
+        }
+        .qr-wemix {
+          width: 65px;
+          height: 18px;
+          background: url("~@/assets/img/common/nft-detail/qr_wemix_logo.webp") 0
+            0 / 100% auto no-repeat;
+          font-size: 0;
+        }
+      }
+  
+      + .step-area {
+        display: flex;
+        flex-flow: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 28px 0 24px;
+        background-color: #e8e8e8;
+        gap: 20px 17px;
+  
+        .step-item {
+          display: flex;
+          flex-flow: column wrap;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+  
+          .step-title {
+            display: block;
+            font-size: 14px;
+            font-weight: 800;
+            color: #000;
+          }
+          .step-img {
+            display: block;
+            width: 56px;
+            height: 56px;
+            margin: 5px 0 9px;
+          }
+          &.step-1 {
+            .step-img {
+              background: url("~@/assets/img/common/nft-detail/qr_img_step1.webp")
+                0 0 / 100% auto no-repeat;
+            }
+          }
+          &.step-2 {
+            .step-img {
+              background: url("~@/assets/img/common/nft-detail/qr_img_step2.webp")
+                0 0 / 100% auto no-repeat;
+            }
+          }
+          &.step-3 {
+            .step-img {
+              background: url("~@/assets/img/common/nft-detail/qr_img_step3.webp")
+                0 0 / 100% auto no-repeat;
+            }
+          }
+          .step-desc {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 14px;
+            color: rgba(0, 0, 0, 0.75);
+          }
+        }
+        .step-next {
+          display: block;
+          width: 32px;
+          height: 32px;
+          margin-top: -11px;
+          background: url("~@/assets/img/common/nft-detail/qr_img_next.webp") 0 0 /
+            100% auto no-repeat;
+        }
+        .qr-bottom {
+          font-size: 12px;
+          color: rgba($color: #000000, $alpha: 0.5);
+        }
+      }
+    }
+  }
+}

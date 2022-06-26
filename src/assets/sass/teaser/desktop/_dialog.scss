@@ -1,0 +1,124 @@
+.v-dialog {
+  border-radius: 0;
+  background-color: #fff;
+
+  .btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    .v-btn__content {
+      opacity: 1 !important;
+    }
+  }
+  .content {
+    position: relative;
+    padding: 24px;
+    color: #000;
+    font-size: 20px;
+  }
+
+  // for PLAY NOW!
+  &.dialog-playnow {
+    .btn-close {
+      top: 20px;
+      right: 20px;
+    }
+    .content {
+      padding: 40px;
+    }
+    .title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+      font-size: 24px !important;
+      font-weight: 700;
+
+      &::before {
+        content: "";
+        display: block;
+        margin-right: 9px;
+        width: 113px;
+        height: 40px;
+        background: url("~@/assets/img/desktop/dialog/bi-mir4-playnow.webp") 0 0 /
+          cover no-repeat;
+      }
+    }
+    .sub-title {
+      margin: 40px 0 16px;
+      line-height: 1.33;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .wrap-link {
+      display: flex;
+      justify-content: space-between;
+
+      .link {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 16px 0 24px;
+        max-width: calc(50% - 1px);
+        height: 80px;
+        line-height: 0;
+        font-size: 0;
+        background-color: #000;
+
+        &::before,
+        &::after {
+          content: "";
+          display: block;
+        }
+        &.windows {
+          &::before {
+            width: 152px;
+            height: 32px;
+            background: url("~@/assets/img/desktop/dialog/icon-windows.webp") 0 0 /
+              cover no-repeat;
+          }
+          &::after {
+            width: 48px;
+            height: 48px;
+            background: url("~@/assets/img/desktop/dialog/btn-download.webp") 0 0 /
+              cover no-repeat;
+          }
+        }
+        &.steam {
+          &::before {
+            width: 140px;
+            height: 43px;
+            background: url("~@/assets/img/desktop/dialog/icon-steam.webp") 0 0 / cover
+              no-repeat;
+          }
+          &::after {
+            width: 48px;
+            height: 48px;
+            background: url("~@/assets/img/desktop/dialog/btn-external.webp") 0 0 /
+              cover no-repeat;
+          }
+        }
+      }
+      .qr {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 0;
+        max-width: calc(33.3% - 1px);
+        line-height: 1.2;
+        font-size: 14px;
+        font-weight: 700;
+        text-align: center;
+        background-color: #fafafa;
+
+        img {
+          display: block;
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+}

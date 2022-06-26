@@ -1,0 +1,389 @@
+<template>
+  <v-dialog
+    :value="open"
+    content-class="dialog-hsp"
+    scrollable
+    persistent
+    :max-width="!isMobile ? '720px' : '100%'"
+    :transition="isMobile ? 'dialog-bottom-transition' : 'scale-transition'"
+  >
+    <v-card class="dialog-contents" tile dark>
+      <v-card-title class="title">
+        <h2>{{ t(Number(my.stakeAmount) > 0 ? 't.playbook.section5.stakemore' : 't.hsp.main.dialog.stake') }}</h2>
+        <v-spacer />
+
+        <v-btn class="close" @click="close" fab icon>
+          <img src="@/assets/img/common/hsp-dialog/icon-close-white.webp" alt="close" />
+        </v-btn>
+      </v-card-title>
+
+      <v-divider />
+
+      <v-card-text class="additional" v-if="Number(my.stakeAmount) > 0">
+        <div class="additional-info-title added" v-show="false">{{ t('w.hsp.main.add-stake') }}</div>
+
+        <div class="additinal-info" v-show="false">
+          <div>
+            <span class="dot">·</span>
+            <span v-html="t('s.hsp.main.add-stake')"></span>
+          </div>
+          <div>
+            <span class="dot">·</span>
+            <span>{{ t('s.hsp.main.add-stake2') }}</span>
+          </div>
+        </div>
+
+        <div class="box-wrapper">
+          <div class="additinal-stake-box">
+            <div>{{ t('t.hsp.currently.hydra') }}</div>
+
+            <div class="box-contents">
+              <span class="box">
+                <img class="hydra-icon" src="@/assets/img/common/hsp-dialog/img-icon-hydra-gold.webp" alt="hydra" />
+
+                <v-tooltip content-class="hydra-tooltip price" :open-on-click="isMobile" :open-on-hover="!isMobile" top>
+                  <template v-slot:activator="{ on, attrs }">
+                    <span class="count" v-bind="attrs" v-on="on">
+                      {{ viewMyStake }}<em>{{ viewMyStakePoint }}</em>
+                    </span>
+                  </template>
+
+                  <template class="tooltip-content">
+                    <span v-html="my.stakeAmount"></span>
+                    <span> HYD</span>
+                  </template>
+                </v-tooltip>
+              </span>
+            </div>
+            <p class="usd" v-if="my && price">$ {{ (Number(my.stakeAmount) * Number(price.USDHydraRate)) | currency(2) }}</p>
+          </div>
+
+          <div class="additinal-stake-box">
+            <div>{{ t('t.hsp.additional.stake') }}</div>
+
+            <div class="box-contents">
+              <span class="box">
+                <span style="margin-right: 2px; font-weight: bold">+</span>
+                <img class="hydra-icon" src="@/assets/img/common/hsp-dialog/img-icon-hydra-gold.webp" alt="hydra" />
+
+                <v-tooltip content-class="hydra-tooltip price" :open-on-click="isMobile" :open-on-hover="!isMobile" top>
+                  <template v-slot:activator="{ on, attrs }">
+                    <span class="count" v-bind="attrs" v-on="on">
+                      {{ stake.split('.')[0] | currency(0) }}<em v-if="stake.split('.').length > 1">.{{ stake.split('.')[1] }}</em>
+                    </span>
+                  </template>
+
+                  <template class="tooltip-content">
+                    <span v-html="stake"></span>
+                    <span> HYD</span>
+                  </template>
+                </v-tooltip>
+
+                <v-btn @click="fetchMy" width="24" height="24" fab icon :disabled="loadingMy" v-show="false">
+                  <img :class="{ on: loadingMy }" class="icon-refresh" src="@/assets/img/common/hsp-dialog/ico-refresh.webp" />
+                </v-btn>
+              </span>
+            </div>
+            <p class="usd">
+              <template v-if="stake">$ {{ (Number(stake) * Number(price.USDHydraRate)) | currency(2) }}</template>
+              <template v-else>&nbsp;</template>
+            </p>
+          </div>
+        </div>
+      </v-card-text>
+
+      <v-divider />
+
+      <validation-provider
+        v-if="balance"
+        ref="form"
+        v-slot="{ errors, failedRules }"
+        :rules="{ required: true, decimal4: true, between: [0.0001, Number(balance ? balance['HYDRA'] : 0)] }"
+      >
+        <v-card-actions class="actions">
+          <div class="hydra-label" :class="{ error: errors.length }">
+            <div class="input-header">
+              <v-tooltip v-if="!isMobile" content-class="hydra-tooltip" :open-on-click="isMobile" :open-on-hover="!isMobile" top>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn v-bind="attrs" v-on="on" class="btn-info" icon x-small>
+                    <img src="@/assets/img/common/hsp-dialog/ico-info.webp" />
+                  </v-btn>
+                </template>
+
+                <span class="tooltip-content">
+                  <span>·</span>
+                  <span>{{ t('s.hsp.main.add-stake.info') }}</span>
+                </span>
+              </v-tooltip>
+
+              <span class="input-message">
+                <template v-if="failedRules.hasOwnProperty('required')">{{ t('s.hsp.main.input-stake') }}</template>
+                <template v-else-if="failedRules.hasOwnProperty('between')">{{ t('s.hsp.main.input-stake.lack') }}</template>
+                <template v-else-if="failedRules.hasOwnProperty('decimal4')">{{ t('s.hsp.main.add-stake.info') }}</template>
+                <template v-else>{{ t('s.hsp.main.input-stake') }}</template>
+              </span>
+
+              <v-spacer></v-spacer>
+
+              <v-tooltip v-if="isMobile" content-class="hydra-tooltip" :open-on-click="isMobile" :open-on-hover="!isMobile" top>
+                <template v-slot:activator="{ on, attrs }">
+                  <button v-bind="attrs" v-on="on" class="btn-info">
+                    <img src="@/assets/img/common/hsp-dialog/ico-info.webp" />
+                  </button>
+                </template>
+
+                <span class="tooltip-content">
+                  <span>·</span>
+                  <span>{{ t('s.hsp.main.add-stake.info') }}</span>
+                </span>
+              </v-tooltip>
+            </div>
+
+            <v-spacer />
+
+            <div class="options">
+              <div class="amount-wrapper">
+                <div class="amount-label">{{ t('w.hsp.main.add-stake.balance') }}</div>
+                <div class="amount">{{ balance['HYDRA'] | currency(4) }} HYD</div>
+              </div>
+
+              <v-spacer />
+
+              <v-btn v-if="isMobile" @click="setMax" class="max" light>{{ t('w.hsp.main.un-stake.max') }}</v-btn>
+              <v-btn v-if="isMobile" @click="setAllDecimal" class="all-decimal text-capitalize" light>{{ t('w.hsp.main.stake.all-decimal') }}</v-btn>
+            </div>
+          </div>
+
+          <div class="hydra-input" :class="{ error: errors.length > 0 }">
+            <img class="hydra-icon" src="@/assets/img/common/hsp-dialog/img-icon-hydra-gold.webp" alt="hydra" />
+            <v-text-field
+              class="input"
+              type="tel"
+              placeholder=""
+              v-model="stake"
+              @keydown="inputStake"
+              @keyup="inputStake"
+              dense
+              solo
+              flat
+              :hide-details="true"
+              ref="stakeRef"
+            />
+            <img v-if="stake" @click="clearStake" class="clear" src="@/assets/img/common/hsp-dialog/icon-clear.webp" alt="clear" />
+
+            <v-btn @click="setMax" class="max" light>{{ t('w.hsp.main.un-stake.max') }}</v-btn>
+            <v-btn @click="setAllDecimal" class="text-capitalize" light>{{ t('w.hsp.main.stake.all-decimal') }}</v-btn>
+          </div>
+          <button
+            type="button"
+            class="btn-stake"
+            :class="{ error: errors.length > 0 }"
+            :disabled="loadingMy || loading || errors.length > 0"
+            @click="postStake"
+          >
+            {{ t('t.hsp.main.dialog.stake') }}
+          </button>
+        </v-card-actions>
+      </validation-provider>
+    </v-card>
+  </v-dialog>
+</template>
+
+<script>
+import { computed, defineComponent, reactive, ref, toRefs, watch } from '@vue/composition-api';
+import { createNamespacedHelpers, useState } from 'vuex-composition-helpers/dist';
+import useI18n from '@/utils/useI18n';
+import { useMobile } from '@/composables/common';
+import { dracoStorage } from '@/utils/baseUtil';
+import { STORAGE_KEY } from '@/constants/accounts';
+import { currency } from '@/filters/numeric';
+
+const { useState: useHspState, useActions: useHspActions } = createNamespacedHelpers('hsp');
+
+export default defineComponent({
+  name: 'HspModalStake',
+  props: {
+    open: {
+      type: Boolean,
+      default: false,
+    },
+    prevStake: {
+      type: Number,
+      default: 0,
+    },
+  },
+  setup(props, { root, emit }) {
+    const form = ref(null);
+    const stakeRef = ref(null);
+    const { balance } = useState(['balance']);
+    const state = reactive({
+      stake: '',
+      loading: false,
+    });
+    const { isMobile } = useMobile();
+
+    const { loadingStake, my, loadingMy, price } = useHspState(['loadingStake', 'my', 'loadingMy', 'price']);
+    const { fetchMy } = useHspActions(['fetchMy']);
+
+    const close = () => {
+      emit('onClose');
+      state.stake = '';
+      form.value.reset();
+    };
+
+    const inputStake = (v) => {
+      if (state.stake) {
+        state.stake = state.stake.replace(/[^0-9.]/g, '');
+      }
+    };
+
+    const clearStake = () => {
+      state.stake = '';
+    };
+
+    const setMax = () => {
+      state.stake = balance.value ? `${Math.floor(Number(balance.value.HYDRA) * 10000) / 10000}` : '';
+    };
+
+    const setAllDecimal = () => {
+      if (balance.value && balance.value.HYDRA) {
+        const b = balance.value.HYDRA.toString().split('.');
+
+        if (b.length > 1) {
+          state.stake = `${Number(state.stake.split('.')[0])}.${b[1].slice(0, 4)}`;
+        }
+      }
+    };
+
+    const postStake = async () => {
+      if (state.loading) {
+        return;
+      }
+
+      const { errors } = await form.value.validate();
+
+      if (errors.length > 0) {
+        return;
+      }
+
+      state.loading = true;
+
+      root.$dracoWebApi
+        .post('/hsp/prepare', {
+          type: 'stake',
+          args: [Number(state.stake)],
+        })
+        .then(({ data }) => {
+          console.log(data);
+          if (data.code !== 200) {
+            // showErrorModal(data);
+            state.loading = false;
+            return;
+          }
+
+          const hashes = data.data.hash;
+          const req = root.$wemix.requestSignature(hashes);
+          state.loading = true;
+          emit('onStart', 'stake');
+          root.$wemix.openQR(
+            'sign',
+            req,
+            (success) => {
+              const last = success[success.length - 1];
+              if (last.code === 200 && last.data.Result === 0) {
+                emit('onEnd', 'stake');
+                close();
+              } else {
+                emit('onEnd', 'stake', last.code);
+              }
+              state.loading = false;
+            },
+            (fail, err) => {
+              console.log(fail, err);
+              emit('onEnd', 'stake', fail[0].code);
+              state.loading = false;
+              // showErrorModal(fail);
+            },
+            () => {
+              emit('onCancel');
+              state.loading = false;
+            },
+            'hsp',
+          );
+        })
+        .catch((e) => {
+          emit('onEnd', 'stake', 110);
+          state.loading = false;
+          console.log(e);
+        });
+    };
+
+    const viewMyStake = computed(() => {
+      return my.value.stakeAmount ? currency(my.value.stakeAmount.split('.')[0], 0) : '--';
+    });
+
+    const viewMyStakePoint = computed(() => {
+      if (my.value.stakeAmount && my.value.stakeAmount.split('.').length > 1) {
+        if (Number(my.value.stakeAmount.split('.')[1])) {
+          return `.${my.value.stakeAmount.split('.')[1]}`;
+        }
+      }
+      return '';
+    });
+
+    const viewMyReward = computed(() => {
+      return my.value.claimAmount ? currency(my.value.claimAmount.split('.')[0], 0) : '--';
+    });
+
+    const viewMyRewardPoint = computed(() => {
+      return my.value.claimAmount && my.value.claimAmount.split('.').length > 1 ? `.${my.value.claimAmount.split('.')[1]}` : '';
+    });
+
+    watch(
+      () => props.open,
+      (current, before) => {
+        if (current && !before) {
+          fetchMy();
+          if (form.value) {
+            form.value.validate();
+          }
+
+          root.$nextTick(() => {
+            setTimeout(() => {
+              if (stakeRef.value) {
+                stakeRef.value.$refs.input.focus();
+              }
+            }, 100);
+          });
+        }
+      },
+    );
+
+    return {
+      form,
+      ...useI18n(),
+      ...toRefs(state),
+      balance,
+      isMobile,
+      close,
+      inputStake,
+      clearStake,
+      postStake,
+      my,
+      price,
+      loadingMy,
+      fetchMy,
+      setMax,
+      setAllDecimal,
+      viewMyStake,
+      viewMyStakePoint,
+      viewMyReward,
+      viewMyRewardPoint,
+      emit,
+      stakeRef,
+    };
+  },
+});
+</script>
+
+<style scoped></style>

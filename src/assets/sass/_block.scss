@@ -1,0 +1,346 @@
+// for 404, 502, forbidden...
+.service-help {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: normal;
+  color: #ffffff75;
+  text-align: center;
+  overflow: hidden;
+  margin: -12px;
+  padding: 0;
+  background: url('~@/assets/img/bg-error.webp') 50% 50% / cover no-repeat;
+
+  .hidden {
+    overflow: hidden;
+    visibility: hidden;
+    position: absolute;
+    z-index: -1;
+    top: -1px;
+    width: 1px;
+    height: 1px;
+    font-size: 0;
+  }
+
+  header {
+    position: fixed;
+    top: 50px;
+    width: 100%;
+    text-align: center;
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 44px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+
+    &__inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      gap: 40px;
+      margin: 0 auto;
+      width: 435px;
+      height: 32px;
+    }
+    p {
+      margin-bottom: 0;
+    }
+
+    .copyright {
+      display: flex;
+      align-items: center;
+      line-height: 1.2;
+      font-size: 12px;
+      color: rgba(#fff, 0.5);
+
+      &::before {
+        content: '';
+        display: block;
+        margin-right: 8px;
+        width: 51px;
+        height: 10px;
+        background: url('~@/assets/img/common/footer/bi-wemade.webp') 50% 0 / auto 100% no-repeat;
+      }
+    }
+    .powered-by {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      line-height: 1.2;
+      color: rgba(#fff, 0.5);
+
+      &::before {
+        content: '';
+        display: block;
+        margin-right: 8px;
+        width: 14px;
+        height: 14px;
+        background: url('~@/assets/img/common/footer/bi-wemix.webp') 50% 0 / auto 100% no-repeat;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  //common-errorPage.
+  div[class^='help-'] {
+    .title {
+      display: block;
+      font-size: 32px !important;
+      font-weight: 700;
+      line-height: 1;
+      color: #fff;
+      margin-top: 48px;
+    }
+    .desc {
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 1.5;
+      margin-top: 8px;
+      color: rgba(#fff, 0.75);
+    }
+    .wrap-button {
+      margin-top: 48px;
+      .btn {
+        width: 200px;
+        height: 48px;
+        background-color: #000;
+        font-size: 14px;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.71;
+      }
+    }
+  }
+  .alert-time {
+    display: block;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.56;
+    color: rgba(#fff, 0.75);
+    margin-top: 48px;
+  }
+
+  // 404
+  .help-404 {
+  }
+
+  .help-maintenance {
+    .desc {
+      margin-top: 16px;
+    }
+  }
+
+  // unavailable
+  .forbidden {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  @media screen and (max-width: 960px) {
+    font-size: 12px;
+    background: url('~@/assets/img/bg-error-m.webp') 50% 50% / cover no-repeat; //모바일은 따로 없지만, 변경에 대비
+
+    header {
+      top: 50px;
+    }
+
+    div[class^='help-'] {
+      padding: 0 16px;
+
+      img {
+        vertical-align: top;
+      }
+
+      .title {
+        font-size: 32px !important;
+        margin-top: 48px;
+      }
+      .desc {
+        font-size: 16px;
+      }
+    }
+    .alert-time {
+      font-size: 14px;
+      margin-top: 32px;
+      span {
+        display: block;
+      }
+    }
+
+    .footer {
+      bottom: 34px;
+
+      &__inner {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        gap: 0;
+      }
+
+      .powered-by {
+        margin: 10px 0 0 0;
+      }
+    }
+  }
+}
+
+.wrap-maintenance {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  background: url('~@/assets/img/bg-maintenance.png') 50% 50% / 100% auto no-repeat;
+}
+
+
+// public페이지를 위해 Sass Nested Rules을 적용하지 않았습니다.
+.unavailable-xdraco {
+  --contents-font-size: 16px;
+  --distance-bi: 48px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 600px;
+  height: 100vh;
+  color: #fff;
+  font-family: Roboto;
+  background: #06072c url('~@/assets/img/public/unavailable/bg-unavailable.jpg') 50% 0 / 1600px auto no-repeat;
+  transition: background-size 500ms .2s ease, background-position 400ms ease;
+}
+.unavailable-xdraco img {
+  vertical-align: top;
+}
+.unavailable-xdraco .header {
+  visibility: visible;
+  display: flex;
+  justify-content: center;
+  margin-top: 56px;
+  line-height: 0;
+}
+.unavailable-xdraco .header .bi {
+  width: 145px;
+  transition: width 400ms ease;
+}
+.unavailable-xdraco .contents {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.5;
+  font-size: var(--contents-font-size);
+}
+.unavailable-xdraco .contents p {
+  margin: 0;
+  text-align: center;
+}
+.unavailable-xdraco .contents .title-page {
+  line-height: 1.2;
+  font-size: 2em;
+}
+.unavailable-xdraco .contents .identity {
+  display: block;
+}
+.unavailable-xdraco .contents .identity + .title-page {
+  margin-top: var(--distance-bi);
+}
+.unavailable-xdraco .footer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 120px;
+  text-align: center;
+}
+.unavailable-xdraco .footer p {
+  margin-bottom: 0;
+}
+.unavailable-xdraco .footer__inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 40px;
+  margin: 0 auto;
+  width: 435px;
+  height: 32px;
+  line-height: 20px;
+}
+.unavailable-xdraco .footer .copyright {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: rgba(#fff, 0.5);
+}
+.unavailable-xdraco .footer .copyright::before {
+  content: '';
+  display: block;
+  margin-right: 8px;
+  width: 51px;
+  height: 10px;
+  background: url('~@/assets/img/public/unavailable/bi-wemade.webp') 50% 0 / auto 100% no-repeat;
+}
+.unavailable-xdraco .footer .powered-by {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: rgba(#fff, 0.5);
+}
+.unavailable-xdraco .footer .powered-by::before {
+  content: '';
+  display: block;
+  margin-right: 8px;
+  width: 14px;
+  height: 14px;
+  background: url('~@/assets/img/public/unavailable/bi-wemix.webp') 50% 0 / auto 100% no-repeat;
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 960px) {
+
+.unavailable-xdraco {
+  --contents-font-size: 14px;
+  --distance-bi: 24px;
+
+  background-size: 960px auto;
+  background-position-y: 40px;
+}
+.unavailable-xdraco .header {
+  margin-top: 22px;
+}
+.unavailable-xdraco .header .bi {
+  width: 92px;
+}
+.unavailable-xdraco .contents {
+  max-width: 300px;
+}
+.unavailable-xdraco .contents .title-page {
+  margin-bottom: 8px;
+  font-size: 1.71428em;
+}
+.unavailable-xdraco .footer__inner {
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+}

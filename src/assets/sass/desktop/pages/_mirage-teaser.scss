@@ -1,0 +1,140 @@
+// Mirage Teaser페이지 스타일 정의
+.contents.mirage-teaser {
+  background-color: #000;
+
+  .section {
+    color: #fff;
+    &__inner {
+      display: flex;
+      flex-direction: column;
+      width: 720px;
+    }
+
+    &.section-video {
+      margin: 4px 0;
+      background-color: #000;
+
+      .section__inner {
+        width: 960px;
+      }
+      .wrap-video {
+        position: relative;
+        padding-top: 0;
+        transition: padding 0.3s;
+
+        &.wrap-video--open {
+          padding-top: 56.25%;
+        }
+        iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    &.section-intro {
+      padding-top: 96px;
+      background: url('~@/assets/img/desktop/mirage/bg-intro.webp') 50% 0 / 1200px auto no-repeat;
+
+      .section__inner {
+        align-items: center;
+        padding: 0 40px;
+        text-align: center;
+      }
+      
+      .section-title {
+        //
+      }
+
+      .intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 80px;
+        margin-bottom: 80px;
+        padding: 16px;
+      }
+
+      .subject {
+        margin-bottom: 40px;
+        font-size: 36px;
+        line-height: 1.11;
+        font-weight: 700;
+      }
+
+      .part {
+        margin-bottom: 40px;
+        font-size: 18px;
+        line-height: 1.56;
+        white-space: pre-wrap;
+
+        .new-line {
+          line-height: 1.78;
+        }
+      }
+
+      .remark {
+        font-size: 24px;
+        line-height: 1.67;
+        font-weight: 700;
+      }
+
+      .divider {
+        width: 720px;
+        height: 75px;
+        background: url('~@/assets/img/desktop/mirage/img-divider.webp') 0 0 / 100% no-repeat;
+      }
+
+      figcaption {
+        margin-top: 40px;
+        align-self: stretch;
+        text-align: right;
+      }
+
+      .txt-caption {
+        font-size: 14px;
+        line-height: 2;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.6);
+      }
+    }
+
+    &.section-define {
+      margin-top: 80px;
+
+      .section-title {
+        margin-bottom: 24px;
+        font-size: 28px;
+        line-height: 1.14;
+      }
+      
+      p {
+        margin-top: 16px;
+        font-size: 14px;
+        line-height: 1.86;
+        color: rgba(255, 255, 255, 0.6);
+
+        em {
+          color: #fff;
+        }
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+      }
+
+      .remark {
+        margin-top: 80px;
+        font-size: 18px;
+        line-height: 1.78;
+        text-align: center;
+      }
+    }
+  }
+
+  .footer {
+    background-color: #000 !important;
+  }
+}

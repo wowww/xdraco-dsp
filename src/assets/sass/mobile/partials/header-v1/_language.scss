@@ -1,0 +1,39 @@
+@import './header-custom-props';
+
+.select-language {
+  .is-mobile & {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    .select-language__list {
+      margin-top: 56px;
+  
+      .wrap-item {
+        margin-top: 2px;
+      }
+      .v-list-item {
+        position: relative;
+        height: 62px;
+        font-size: 16px;
+        color: var(--content-color) !important;
+        justify-content: center;
+  
+        &::before,
+        &::after {
+          content: none !important;
+        }
+        &.v-item--active {
+          color: rgba(#fff, 1) !important;
+          font-weight: 700;
+        }
+      }
+    }
+    .btn-gnb-language {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+    }
+  }
+}

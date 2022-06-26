@@ -1,0 +1,961 @@
+.dialog-stake {
+  &.theme-dark {
+    background-image: -webkit-linear-gradient(
+      42deg,
+      #110036 27%,
+      #120d4e 62%,
+      #00053a 100%
+    );
+    background-image: -o-linear-gradient(
+      42deg,
+      #110036 27%,
+      #120d4e 62%,
+      #00053a 100%
+    );
+    background-image: linear-gradient(
+      132deg,
+      #110036 27%,
+      #120d4e 62%,
+      #00053a 100%
+    );
+    color: #fff;
+
+    .content {
+      color: rgba(#fff, 0.75);
+    }
+  }
+
+  &.winner {
+    background: url("~@/assets/img/desktop/popup/bg-winner-light.webp") 50% 50% /
+        cover no-repeat,
+      linear-gradient(132deg, #110036 27%, #120d4e 62%, #00053a 100%);
+
+    .card-content {
+      .wrap-char {
+        gap: 40px;
+      }
+    }
+  }
+
+  .dialog-header {
+    margin: -24px -24px 0;
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(#fff, 0.1);
+
+    .info-round {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .round-title {
+        flex: 1;
+      }
+    }
+  }
+
+  //stake-character-info
+  .card-content {
+    width: 100%;
+  }
+  .wrap-char {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 64px;
+    padding-top: 24px;
+
+    //필요없어지면 .char-info, char-detail은 삭제
+    .char-info {
+      //_char-info.scss root css이슈로 3줄 추가
+      display: block;
+      flex-direction: initial;
+      align-items: initial;
+
+      flex: 0 0 132px;
+      text-align: center;
+      .char {
+        min-height: 136px;
+        line-height: normal;
+        font-size: 12px;
+        color: #ffffff50;
+        text-align: center;
+
+        .nick {
+          display: block;
+          font-size: 16px;
+          color: #fff;
+          margin-top: 4px;
+        }
+        .server {
+          display: block;
+          margin-top: 2px;
+          letter-spacing: -0.12px;
+        }
+      }
+      .amount {
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(#fff, 0.1);
+
+        .balance {
+          dd {
+            span {
+              font-size: 18px;
+              font-weight: 700;
+              letter-spacing: -0.36px;
+              margin: 0;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+    .char-detail {
+      flex: 1 1 auto;
+      font-size: 14px;
+      letter-spacing: -0.14px;
+      color: rgba(#fff, 0.75);
+
+      //.wrap-detail 필요는 없지만, 디자인 라인을 맞추기 위해서 min-height용도.
+      .wrap-detail {
+        width: 100%;
+        min-height: 136px;
+
+        .title {
+          font-size: 40px !important; //.v-application .title Reason
+          font-weight: 700;
+          letter-spacing: -0.4px !important; //.v-application .title Reason
+          line-height: 1.2;
+          color: #fff;
+        }
+        .detail-list {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          margin-top: 16px;
+
+          li {
+            position: relative;
+            padding: 2px 2px 2px 20px;
+
+            &.point {
+              //현재 정의된 컬러는 없지만, dot중 하나가 흰색으로 가능성 있음.
+            }
+            em {
+              font-style: normal;
+            }
+            .point {
+              color: #ff0000;
+            }
+            &:before {
+              content: "";
+              position: absolute;
+              left: 8px;
+              top: 10px;
+              width: 3px;
+              height: 3px;
+              border-radius: 100%;
+              background-color: rgba(#fff, 0.75);
+            }
+          }
+        }
+        .detail-desc {
+          margin-top: 16px;
+          font-size: 14px;
+          font-weight: normal;
+          line-height: 1.71;
+          letter-spacing: -0.14px;
+          color: rgba(#fff, 0.75);
+        }
+        .detail-desc + .detail-card {
+          margin: 16px 0;
+        }
+
+        .wrap-reward {
+          min-height: 227px;
+          padding-bottom: 24px;
+
+          .refundable,
+          .reward {
+            text-align: center;
+            font-size: 12px;
+            color: rgba(#fff, 0.5);
+
+            strong {
+              display: block;
+              text-align: center;
+              font-size: 14px;
+              font-weight: 700;
+              color: #fff;
+            }
+            em {
+              font-style: normal;
+              color: #fff;
+            }
+            .ico-darco.ico-sm {
+              font-size: 28px;
+              font-weight: 700;
+              color: #fff;
+            }
+            .desc {
+              em {
+                margin-right: 8px;
+
+                &:last-of-type {
+                  margin-right: 0;
+                }
+              }
+            }
+          }
+          .plus {
+            display: block;
+            text-align: center;
+            font-size: 24px;
+            letter-spacing: -0.48px;
+          }
+          .reward {
+            .ico-darco.ico-sm {
+              color: #a0f;
+            }
+          }
+        }
+      }
+
+      .amount {
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(#fff, 0.1);
+        display: flex;
+        gap: 40px;
+
+        dl.balance,
+        dl.stake {
+          width: 50%;
+        }
+      }
+    }
+
+    //캐릭터 선택으로 변경. 1104. 2case
+    .char-choice {
+      flex: 1;
+      font-size: 14px;
+      letter-spacing: -0.14px;
+      color: rgba(#fff, 0.75);
+      text-align: center;
+
+      //.wrap-detail 필요는 없지만, 디자인 라인을 맞추기 위해서 min-height용도.
+      .wrap-detail {
+        width: 100%;
+        min-height: 136px;
+
+        .title {
+          font-size: 40px !important; //.v-application .title Reason
+          font-weight: 700;
+          letter-spacing: -0.4px !important; //.v-application .title Reason
+          line-height: 1.2;
+          color: #fff;
+        }
+        .detail-list {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          margin-top: 16px;
+
+          li {
+            position: relative;
+            padding: 2px 2px 2px 20px;
+
+            &.point {
+              //현재 정의된 컬러는 없지만, dot중 하나가 흰색으로 가능성 있음.
+            }
+            em {
+              font-style: normal;
+            }
+            .point {
+              color: #ff0000;
+            }
+            &:before {
+              content: "";
+              position: absolute;
+              left: 8px;
+              top: 10px;
+              width: 3px;
+              height: 3px;
+              border-radius: 100%;
+              background-color: rgba(#fff, 0.75);
+            }
+          }
+        }
+        .detail-desc {
+          margin-top: 16px;
+          font-size: 14px;
+          font-weight: normal;
+          line-height: 1.71;
+          letter-spacing: -0.14px;
+          color: rgba(#fff, 0.75);
+        }
+        .detail-desc + .detail-card {
+          margin: 16px 0;
+        }
+        .detail-card {
+          .card {
+            margin: 0 auto;
+          }
+        }
+
+        .wrap-reward {
+          min-height: 227px;
+          padding-bottom: 24px;
+          .refundable,
+          .reward {
+            text-align: center;
+            font-size: 12px;
+            color: rgba(#fff, 0.5);
+            strong {
+              display: block;
+              text-align: center;
+              font-size: 14px;
+              font-weight: 700;
+              color: #fff;
+            }
+            em {
+              font-style: normal;
+              color: #fff;
+            }
+            .ico-darco.ico-sm {
+              font-size: 32px;
+              font-weight: 700;
+              color: #fff;
+            }
+          }
+          .plus {
+            display: block;
+            text-align: center;
+            font-size: 24px;
+            letter-spacing: -0.48px;
+          }
+          .reward {
+            .ico-darco.ico-sm {
+              color: #a0f;
+            }
+          }
+        }
+      }
+
+      .amount {
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(#fff, 0.1);
+        display: flex;
+        gap: 40px;
+
+        dl.balance,
+        dl.stake {
+          width: 50%;
+        }
+      }
+    }
+
+    //char-common.
+    dl.balance,
+    dl.stake {
+      font-size: 0;
+      text-align: left;
+
+      dt {
+        font-size: 12px;
+        font-weight: normal;
+        color: #fff;
+        letter-spacing: -0.12px;
+      }
+      dd {
+        margin-top: 2px;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: -0.2px;
+        color: #fff;
+
+        .value {
+          @include text-overflow();
+          display: block;
+          margin: 0;
+          padding: 0;
+          max-width: 90px;
+        }
+        strong {
+          display: inline-block;
+          vertical-align: middle;
+        }
+        em {
+          font-style: normal;
+        }
+        .odds {
+          display: flex;
+          position: relative;
+        }
+        .profit {
+          display: flex;
+          position: relative;
+          font-size: 14px;
+          font-weight: 700;
+          letter-spacing: -0.14px;
+          color: #ffe600;
+
+          .value {
+            max-width: 80px;
+          }
+        }
+      }
+    }
+  }
+
+  //캐릭터 선택 Lv40over
+  .select {
+    &.v-input {
+      border-radius: 0;
+      transition: none;
+      min-height: 40px;
+
+      > .v-input__control {
+        > .v-input__slot {
+          margin-bottom: 0;
+        }
+        .v-text-field__details {
+          margin-bottom: 0;
+          padding: 0;
+          min-height: inherit;
+
+          .v-messages {
+            min-height: inherit;
+          }
+        }
+      }
+    }
+
+    &.v-text-field--outlined.v-input--is-focused fieldset,
+    &.v-text-field--outlined.v-input--has-state fieldset,
+    .v-input__control fieldset {
+      border: 1px solid rgba(#fff, 0.15);
+    }
+    .v-select__selections {
+      line-height: 1.26;
+      font-size: 14px;
+      color: #fff !important;
+    }
+
+    //.theme--light.v-select .v-select__selections
+
+    .v-icon {
+      font-size: 0;
+      width: 16px;
+      height: 16px;
+      background: url("~@/assets/img/desktop/popup/ico-arrow-bottom-light.webp")
+        0 0 / cover no-repeat;
+    }
+  }
+  .list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+    border-bottom: 1px solid rgba(#fff, 0.1);
+
+    li {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      min-height: 80px;
+      border-top: 1px solid rgba(#fff, 0.1);
+
+      &:first-of-type {
+        //border-top: 0;
+      }
+    }
+  }
+
+  .radio-box,
+  .check-box {
+    display: inline-block;
+    position: relative;
+
+    .input-check,
+    .input-radio {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      transform: translate(0, -50%);
+      border: 0;
+      background: none;
+      -webkit-appearance: none;
+
+      + .input-label {
+        display: inline-block;
+        font-size: 11px;
+        color: #ffffff50;
+        padding-left: 28px;
+        box-sizing: border-box;
+        cursor: pointer;
+        vertical-align: middle;
+
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translate(0, -50%);
+          width: 24px;
+          height: 24px;
+          background: url("~@/assets/img/desktop/popup/form-radio-light.webp") 0
+            0 / cover no-repeat;
+          vertical-align: middle;
+        }
+      }
+      &:disabled + .input-label {
+        &:before {
+          opacity: 0.5;
+        }
+      }
+    }
+    .input-radio {
+      &:checked + .input-label {
+        &:before {
+          background: url("~@/assets/img/desktop/popup/form-radio-active.webp")
+            0 0 / cover no-repeat;
+        }
+      }
+      &[checked][disabled] + .input-label {
+        &:before {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  //캐릭터 선택
+  .wrap-list {
+    padding: 24px 8px 11px;
+
+    .notice {
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 1.71;
+      letter-spacing: -0.14px;
+      color: #fff;
+    }
+    .notice + .list-header {
+      margin-top: 16px;
+      border-top: 1px solid rgba(#fff, 0.1);
+    }
+
+    .list-header {
+      display: flex;
+      flex: 1 1 auto;
+      align-items: center;
+      padding: 16px 0 0;
+
+      .server-select {
+        width: 256px; //percent시 options에 widthdp 0.5px 차이발생
+      }
+      .server-update {
+        margin-left: auto;
+        .btn-update {
+          position: relative;
+          display: inline-flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          padding: 0;
+          font-size: 12px;
+          font-weight: normal;
+          color: #fff;
+          padding-left: 28px;
+          background-color: transparent;
+          em {
+            font-style: normal;
+          }
+
+          &:before {
+            @include pseudoIcon();
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(0, -50%);
+            margin-top: -1px;
+            background: url("~@/assets/img/desktop/popup/ico-reload-light.webp")
+              0 0 / cover no-repeat;
+          }
+        }
+      }
+    }
+
+    .list {
+      padding-left: 0;
+      margin-top: 16px;
+
+      li {
+        justify-content: space-between;
+        &:first-of-type {
+          border-top: 0;
+        }
+
+        &.empty {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 2rem;
+        }
+
+        .list-content {
+          word-break: break-all;
+
+          //my-character
+          .char-info {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .thumb {
+              display: flex;
+              align-items: center;
+            }
+            .thumb + .info {
+              padding-left: 10px;
+            }
+            .info {
+              line-height: 1;
+              .nick {
+                display: block;
+                font-size: 16px;
+                font-weight: 700;
+                color: #fff;
+                line-height: 1;
+              }
+              .category,
+              .lv {
+                display: inline-block;
+                font-size: 12px;
+                font-weight: normal;
+                color: #ffffff50;
+                line-height: 1;
+              }
+              .category {
+                position: relative;
+                margin-left: 10px;
+
+                &:before {
+                  content: "";
+                  position: absolute;
+                  left: -5px;
+                  top: 50%;
+                  height: 10px;
+                  margin-top: -5px;
+                  border-left: 1px solid #ffffff10;
+                }
+              }
+            }
+          }
+
+          //my-wallet
+          .credit-info {
+            .info {
+              margin-top: 4px;
+
+              span[class^="ico-"] {
+                margin: 0;
+                font-size: 28px;
+                font-weight: 700;
+                line-height: 1;
+              }
+            }
+          }
+
+          //activity
+          .active-info {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .thumb + .info {
+              padding-left: 16px;
+            }
+            .info {
+              em {
+                font-style: normal;
+              }
+              .time {
+                display: block;
+                font-size: 12px;
+                font-weight: normal;
+                color: #00000050;
+              }
+              .history,
+              .desc {
+                font-size: 16px;
+                color: #000;
+                line-height: 1.25;
+              }
+              .history {
+                .ico-darco.ico-xs {
+                  font-weight: 700;
+                }
+                em + .ico-darco.ico-xs {
+                  margin-left: 4px;
+                }
+                .ico-hydra.ico-xs {
+                  font-weight: 700;
+                }
+                em + .ico-hydra.ico-xs {
+                  margin-left: 4px;
+                }
+              }
+            }
+          }
+        }
+        .fnc {
+          .radio-box {
+            .input-label {
+              padding-left: 0;
+              padding-right: 28px;
+
+              &:before {
+                left: inherit;
+                right: 0;
+              }
+            }
+          }
+          .btn-circle-plus {
+            position: relative;
+            display: inline-flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+
+            width: 24px;
+            height: 24px;
+            padding: 0;
+            font-size: 0;
+            background: url("~@/assets/img/desktop/popup/ico-plus-circle.webp")
+              0 0 / cover no-repeat;
+          }
+        }
+        &.disabled {
+          .list-content {
+            opacity: 0.3;
+          }
+        }
+      }
+    }
+  }
+
+  //stake form-input
+  .form-amount {
+    .fieldset {
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+    .desc {
+      display: block;
+      margin-top: 24px;
+      font-size: 12px;
+      letter-spacing: -0.12px;
+      color: #fff;
+
+      &.alert {
+        color: #f00;
+      }
+    }
+    .desc ~ .wrap-form {
+      margin-top: 16px;
+    }
+  }
+
+  .wrap-button {
+    margin-top: 16px;
+
+    .btn {
+      min-width: 100%;
+      justify-content: center;
+
+      &:disabled,
+      &[aria-disabled="true"] {
+        background-color: rgba(#fff, 0.05);
+      }
+    }
+
+    .btn-secondary {
+      strong {
+        font-size: 20px;
+        line-height: 1.2;
+        white-space: normal;
+      }
+      span {
+        font-size: 12px;
+        font-weight: normal;
+        line-height: 1.33;
+        //color: #ff4242;
+      }
+    }
+  }
+
+  //새로운타입 추가. 1104.
+  .fieldset.editable {
+    @include fieldset-editable();
+  }
+
+  .wrap-form {
+    background: transparent;
+    position: relative;
+
+    .fieldset {
+      position: relative;
+      line-height: 1.25;
+      font-size: 0;
+
+      .input {
+        display: inline-block;
+        border: 1px solid #fff;
+        padding: 4px 8px;
+        border-radius: 0;
+        width: 100%;
+        outline: none;
+        transition: 0.3s;
+        font-size: 12px;
+        font-weight: normal;
+        line-height: 1.25;
+        color: #fff;
+
+        &.add-focus,
+        &:focus {
+          border: 1px solid #a0f;
+        }
+        &.alert {
+          border: 1px solid #f00;
+          color: #f00;
+        }
+        &.add-ani {
+          transition: 0.8s;
+        }
+
+        @include placeholder();
+      }
+    }
+    //animation
+    .input {
+      ~ .add-anifocus {
+        &:before,
+        &:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 1px;
+          background-color: #a0f;
+          transition: 0.3s;
+        }
+        &:after {
+          top: auto;
+          bottom: 0;
+          left: auto;
+          right: 0;
+        }
+        i:before,
+        i:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 1px;
+          height: 0;
+          background-color: #a0f;
+          transition: 0.4s;
+        }
+        i:after {
+          left: auto;
+          right: 0;
+          top: auto;
+          bottom: 0;
+        }
+      }
+      &:focus {
+        ~ .add-anifocus {
+          &:before,
+          &:after {
+            width: 100%;
+            transition: 0.3s;
+          }
+          i:before,
+          i:after {
+            height: 100%;
+            transition: 0.4s;
+          }
+        }
+      }
+    }
+    //form - input
+    &.theme--light {
+      .fieldset {
+        .input {
+          border: 1px solid #e7e7e7;
+          color: #000;
+        }
+      }
+      .notice {
+        color: #00000050;
+      }
+    }
+    .notice {
+      font-size: 10px;
+      color: #ffffff50;
+      &.alert {
+        color: #fe0000;
+      }
+    }
+
+    .fieldset.add-ico-draco {
+      &:before {
+        content: "";
+        position: absolute;
+        left: 16px;
+        top: 15px;
+        width: 32px;
+        height: 32px;
+        background: url("~@/assets/img/desktop/popup/ico-draco.webp") 0 0 /
+          cover no-repeat;
+      }
+      .input {
+        padding: 15px 18px 15px 56px;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: -0.24px;
+        line-height: normal;
+
+        &::placeholder {
+          font-size: 20px;
+          font-weight: 400;
+        }
+      }
+      .in-msg {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translate(0, -50%);
+        font-size: 12px;
+        color: #fff;
+        font-weight: normal;
+        letter-spacing: -0.12px;
+        span {
+          vertical-align: middle;
+          + span {
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+    .fieldset.add-ico-draco ~ .notice {
+      font-size: 14px;
+    }
+  }
+}

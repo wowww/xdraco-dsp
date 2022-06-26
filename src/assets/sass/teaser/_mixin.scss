@@ -1,0 +1,103 @@
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin hidden {
+  position: absolute !important;
+  top: -1px;
+  left: -1px;
+  overflow: hidden;
+  visibility: hidden;
+  height: 1px !important;
+  width: 1px !important;
+  font-size: 0;
+  word-wrap: normal;
+}
+
+@mixin hide-text {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  text-transform: capitalize;
+}
+
+@mixin text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin line-clamp($line, $line-height) {
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  max-height: $line-height * $line;
+  line-height: $line-height;
+  -webkit-line-clamp: $line;
+  /*! autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /*! autoprefixer: on */
+}
+
+@mixin display-balance($line-height: 1, $font-size: 40px, $color: #fff, $symbol: 'draco') {
+  // symbol: draco, wemix, wemixcredit
+  display: flex;
+  align-items: center;
+  line-height: $line-height;
+  letter-spacing: -0.6px;
+  font-size: $font-size;
+  font-weight: 700;
+  color: $color;
+
+  &::before {
+    content: '';
+    display: block;
+    margin-right: 8px;
+    width: 40px;
+    height: 40px;
+    background: url('~@/assets/img/mobile/symbol-#{$symbol}.webp') 0 0 / cover no-repeat;
+  }
+}
+
+@mixin volume-change($height: 40px, $font-size: inherit, $padding: 10px) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 $padding;
+  height: $height;
+  text-align: center;
+  font-size: $font-size;
+  background-color: rgba(#fff, .2);
+  vertical-align: super;
+
+  &.plus {
+    background-color: #f00;
+  }
+  &.minus {
+    background-color: #0085ff;
+  }
+}
+
+@mixin no-gutter() {
+  margin-left: calc(var(--section-inner-padding) * -1);
+  width: calc(100% + (var(--section-inner-padding) * 2));
+}
+
+@mixin iconActivity($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  &::after {
+    content: '';
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    background-color: #ff0000;
+  }
+}

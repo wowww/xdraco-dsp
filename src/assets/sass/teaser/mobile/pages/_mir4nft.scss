@@ -1,0 +1,419 @@
+@import '../../banner';
+
+@mixin no-gutter() {
+  margin-left: calc(var(--section-inner-padding) * -1);
+  width: calc(100% + (var(--section-inner-padding) * 2));
+}
+:root {
+  --header-height: 64px;
+  --section-inner-padding: 32px;
+}
+
+.container {
+  .mir4nft {
+    // padding-top: calc(var(--header-height) + 56px);
+    padding-top: 56px;
+
+    // 상단 배경
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -2;
+      width: 100%;
+      height: 380px;
+      background: url("~@/assets/img/mobile/mir4nft/bg-top.webp") 50% 0 / auto 100% no-repeat;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 1200ms 0.2s ease-in-out, transform 1200ms ease-out;
+    }
+    &::after {
+      // content: '';
+      position: absolute;
+      z-index: -1;
+      top: -100px;
+      left: -10vw;
+      width: 120vw;
+      height: calc(640px + 200px);
+      flex-grow: 0;
+      background-image: radial-gradient(circle at 0 0, rgba(0, 0, 0, 0), #000);
+      transform: rotate(-7deg);
+      opacity: 0.5;
+    }
+
+    .section {
+      margin-top: 60px;
+      padding: 0 var(--section-inner-padding);
+      width: 100%;
+      font-size: 16px;
+      box-sizing: border-box;
+      
+      &__inner {
+        > .headword {
+          line-height: 40px;
+          font-size: 32px;
+          font-weight: 700;
+          color: #fff;
+        }
+      }
+      .wrap-character {
+        @include no-gutter();
+      }
+      .wrap-define {
+        .define {
+          &::before {
+            top: calc(-36px - 18px);
+            width: 12px;
+            height: 36px;
+            background: url("~@/assets/img/mobile/mir4nft/icon-arrow.webp") 50% 50% / contain no-repeat;
+          }
+          &::after {
+            margin-bottom: 86px;
+          }
+          &.minting::after {
+            background-image: url("~@/assets/img/mobile/mir4nft/bg-define-minting.webp");
+          }
+          &.sealing::after {
+            background-image: url("~@/assets/img/mobile/mir4nft/bg-define-sealing.webp");
+          }
+          &.trading::after {
+            background-image: url("~@/assets/img/mobile/mir4nft/bg-define-trading.webp");
+          }
+          &.searching::after {
+            background-image: url("~@/assets/img/mobile/mir4nft/bg-define-searching.webp");
+          }
+          &.purchasing::after {
+            background-image: url("~@/assets/img/mobile/mir4nft/bg-define-purchasing.webp");
+          }
+          &.playing::after {
+            background-image: url("~@/assets/img/mobile/mir4nft/bg-define-playing.webp");
+          }
+        }
+      }
+      &:first-of-type {
+        margin-top: 0;
+      }
+      &.section1 {
+        font-weight: 700;
+        color: #fff;
+
+        p {
+          margin-top: 16px;
+
+          &:first-of-type {
+            margin-top: 0;
+          }
+          &.text-introduce {
+            line-height: 1.334;
+            font-size: 24px;
+          }
+          &.text-desc {
+            font-size: 18px;
+            color: rgba(#fff, .75);
+          }
+        }
+        .bi {
+          margin-bottom: 40px;
+          width: 112px;
+          height: 48px;
+          font-size: 0;
+          background: url("~@/assets/img/mobile/mir4nft/bi-mir4nft.webp") 50% 0 / auto 100% no-repeat;
+        }
+        .wrap-character {
+          @include no-gutter();
+          position: relative;
+          margin-top: 80px;
+          margin-bottom: 40px;
+          // padding-top: 20px;
+          height: 480px;
+          background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(#000, .5));
+
+          .swiper {
+            height: 100%;
+            opacity: 0;
+
+            &-wrapper {
+              max-width: var(--section-inner-maxwidth);
+            }
+            &-slide {
+              display: flex;
+              align-items: flex-end;
+              justify-content: center;
+
+              // symbole
+              &::before {
+                content: '';
+                position: absolute;
+                top: 30px;
+                left: calc(50% - 175px);
+                width: 350px;
+                height: 350px;
+                background-position: 0 0;
+                background-size: cover;
+                background-repeat: no-repeat;
+                opacity: 0;
+                transition: opacity 800ms .2s ease-in;
+              }
+              .name {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: calc(50% - 42px);
+                left: calc(50% - 42px);
+                z-index: 1;
+                width: 84px;
+                height: 84px;
+                line-height: 1;
+                font-size: 13px;
+                font-weight: 700;
+                text-align: center;
+                text-transform: uppercase;
+                opacity: 0;
+                transition: opacity 500ms 1s linear;
+
+                &::before {
+                  content: '';
+                  position: absolute;
+                  top: 12%;
+                  left: 12%;
+                  z-index: -1;
+                  border: 1px solid #fff;
+                  width: 76%;
+                  height: 76%;
+                  background-color: rgba(#000, .4);
+                  transform: rotate(45deg);
+                  opacity: 0;
+                  transition: opacity 600ms .8s ease-out;
+                }
+              }
+              .character {
+                position: relative;
+                // height: calc(100% - 50px);
+                height: 100%;
+                opacity: 0;
+                transform: translateX(-30px);
+                transition: opacity 400ms 1s ease, transform 500ms 1s ease;
+              }
+              &[data-character="warrior"] {
+                &::before {
+                  background-image: url("~@/assets/img/mobile/mir4nft/symbole-warrior.webp");
+                }
+              }
+              &[data-character="sorcerer"] {
+                &::before {
+                  background-image: url("~@/assets/img/mobile/mir4nft/symbole-sorcerer.webp");
+                }
+              }
+              &[data-character="taoist"] {
+                &::before {
+                  background-image: url("~@/assets/img/mobile/mir4nft/symbole-taoist.webp");
+                }
+              }
+              &[data-character="lancer"] {
+                &::before {
+                  background-image: url("~@/assets/img/mobile/mir4nft/symbole-lancer.webp");
+                }
+              }
+              &.swiper-slide-active {
+                // symbole
+                &::before {
+                  opacity: 1;
+                }
+                .character {
+                  opacity: 1;
+                  transform: translateX(0);
+                }
+                .name::before {
+                  opacity: 1;
+                }
+              }
+            }
+            .level,
+            .power {
+              position: absolute;
+              top: 120px;
+              left: 0;
+              // left: calc(50% - 180px);
+              // margin: 0 auto;
+              width: 100%;
+              // max-width: var(--section-inner-maxwidth);
+              height: calc(100% - 120px);
+              opacity: 0;
+              transition: opacity ease 800ms 1s;
+
+              > .inner {
+                display: flex;
+                position: relative;
+                margin: 0 auto;
+                width: 360px;
+                height: 100%;
+                line-height: 1.334;
+                font-size: 12px;
+                font-weight: 700;
+
+                em {
+                  display: block;
+                  position: relative;
+                  left: -2px;
+                  margin-top: 2px;
+                  line-height: 1;
+                  font-size: 24px;
+                  font-style: normal;
+                  color: #ff0000;
+                }
+              }
+            }
+            .level {
+              z-index: 1;
+
+              > .inner {
+                flex-wrap: wrap;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding: 0 30px 58px;
+
+                &::after {
+                  content: '';
+                  display: block;
+                  position: relative;
+                  left: -10px;
+                  margin: 10px auto 0;
+                  width: 315px;
+                  height: 7px;
+                  background: url("~@/assets/img/mobile/mir4nft/bg-graph-level.webp") 0 0 / auto 100% no-repeat;
+                }
+                em {
+                  color: #aa00ff;
+                }
+              }
+            }
+            .power {
+              > .inner {
+                align-items: flex-start;
+                justify-content: space-between;
+                padding-top: 16px;
+
+                &::before {
+                  content: '';
+                  display: block;
+                  position: relative;
+                  left: 2px;
+                  width: 318px;
+                  height: 175px;
+                  background: url("~@/assets/img/mobile/mir4nft/bg-graph-power.webp") 0 0 / 100% auto no-repeat;
+                }
+                .text {
+                  position: absolute;
+                  top: -104px;
+                  right: 10px;
+                }
+              }
+            }
+
+            // initialized
+            // &.swiper-container-initialized {
+            &.swiper--loaded {
+              opacity: 1;
+
+              .swiper-slide {
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+  
+                &::before {
+                  transition-duration: 400ms;
+                  transition-delay: .1s;
+                }
+                .character {
+                  transition-delay: .3s, .3s;
+                }
+                .name {
+                  opacity: 1;
+                  // transition-delay: 0s;
+                  // transition-duration: 0s;
+                }
+              }
+              .level, 
+              .power {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+      .define {
+        dt {
+          display: block;
+          margin-bottom: 12px;
+          line-height: 1.15;
+          font-size: 20px;
+          color: #fff;
+          font-weight: 700;
+        }
+        dd {
+          font-size: 16px;
+        }
+      }
+      .wrap-define {
+        margin-top: 40px;
+    
+        .define {
+          flex: 1;
+          position: relative;
+    
+          &::before {
+            content: '';
+            position: absolute;
+            top: calc(-24px - 12px);
+            left: calc(50% - 12px);
+            width: 24px;
+            height: 24px;
+            background: url("~@/assets/img/mobile/exchange/icon-arrow.webp") 50% 50% / contain no-repeat;
+          }
+          &::after {
+            content: '';
+            display: block;
+            margin: 36px 0 72px;
+            width: 100%;
+            height: 120px;
+            background-position: 50% 0;
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+          }
+          &:first-of-type {
+            &::before {
+              content: none;
+            }
+          }
+        }
+      }
+      .available-date {
+        margin: 80px auto 0;
+        max-width: 420px;
+        font-size: 20px;
+        font-weight: 700;
+        color: #fff;
+        text-align: center;
+      }
+    }
+
+    // load page
+    .init-mir4nft & {
+      &::before {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .section {
+        &.section1 {
+          //
+        }
+      }
+    }
+  }
+  .init-mir4nft & {
+    background-image: none !important;
+  }
+}

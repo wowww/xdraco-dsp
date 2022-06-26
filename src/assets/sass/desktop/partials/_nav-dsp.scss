@@ -1,0 +1,294 @@
+.is-desktop {
+  .subnav {
+    border-bottom: 1px solid rgba(#fff, 0.1);
+    padding: 0;
+    width: 100%;
+    height: var(--navdsp-height);
+
+    // background-color: rgba(#161630, .02);
+    // backdrop-filter: blur(1px) opacity(0);
+    transition: all 400ms ease;
+
+    .wrap-sub {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 100%;
+    }
+
+    .logo {
+      // position: absolute;
+      // left: 0;
+      // top: 30px;
+      display: block;
+      width: 117px;
+      height: 48px;
+      font-size: 0;
+      background: url("~@/assets/img/desktop/subnav/logo-dsp.webp") 0 0 / auto
+        100% no-repeat;
+    }
+
+    .nav-dsp {
+      // position: absolute;
+      // right: 0;
+      // top: 37px;
+
+      display: flex;
+      background-color: transparent;
+      color: #fff;
+
+      .v-list-item-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+      }
+
+      .v-list-item {
+        min-height: 34px;
+        padding: 0;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: normal;
+        margin-left: 40px;
+
+        &::before {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: inherit;
+          bottom: 0;
+          content: "";
+          pointer-events: none;
+          transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+          background-color: red;
+          width: 100%;
+          height: 2px;
+        }
+
+        span {
+          white-space: nowrap;
+        }
+
+        &:first-of-type {
+          margin-left: 0;
+        }
+
+        &:not(.v-list-item--active):not(.v-list-item--disabled) {
+          color: rgba(#fff, 0.4) !important;
+        }
+
+        &.v-list-item--active {
+          &::before,
+          &:hover::before {
+            opacity: 1;
+          }
+        }
+      }
+
+      &.v-sheet.v-list:not(.v-sheet--outlined) {
+        box-shadow: none;
+      }
+
+      &.v-list {
+        padding: 0;
+      }
+    }
+
+    // for Exchange
+    &.exchange {
+      .logo {
+        width: 159px;
+        height: 27px;
+        background-image: url("~@/assets/img/desktop/subnav/logo-exchange.webp");
+      }
+    }
+
+    // for EXD
+    &.exd {
+      .logo {
+        width: 117px;
+        height: 48px;
+        background-image: url("~@/assets/img/desktop/subnav/logo-exd.webp");
+      }
+
+      .nav-dsp {
+        .v-list-item {
+          &::before {
+            background-color: var(--color-exd);
+          }
+        }
+      }
+    }
+
+    // for MIR4NFT
+    &.nft {
+      .logo {
+        width: 94px;
+        height: 41px;
+        background-image: url("~@/assets/img/desktop/subnav/logo-nft.webp");
+      }
+    }
+
+    // for Collectibles
+    &.collectibles {
+      .logo {
+        width: 212px;
+        height: 40px;
+        background-image: url("~@/assets/img/desktop/subnav/logo-collectibles.webp");
+      }
+    }
+
+    // for HSP
+    &.hsp {
+      .logo {
+        width: 107px;
+        height: 44px;
+        background-image: url("~@/assets/img/desktop/subnav/logo-hsp.webp");
+      }
+    }
+
+    // for MIRAGE
+    &.mirage {
+      .logo {
+        width: 139px;
+        height: 44px;
+        background-image: url("~@/assets/img/desktop/subnav/logo-mirage.webp");
+      }
+    }
+
+    &.inventory {
+      .logo {
+        width: 350px;
+        height: 44px;
+        background-image: url("~@/assets/img/desktop/subnav/logo-inventory.webp");
+      }
+    }
+
+    // for Coin
+    &.coin {
+      &.light {
+        border-bottom: 1px solid rgb(0 0 0 / 10%);
+
+        .nav-dsp {
+          color: #01113e;
+        }
+
+        .logo {
+          background-image: url("~@/assets/img/desktop/subnav/logo-coin-light.webp");
+        }
+
+        .v-list-item {
+          &:not(.v-list-item--active):not(.v-list-item--disabled) {
+            color: rgba(#01113e, 0.6) !important;
+          }
+
+          &::before {
+            background-color: #29638b;
+          }
+        }
+
+        .text {
+          color: #01113e;
+
+          &.price {
+            background-image: url("~@/assets/img/desktop/subnav/ico-coin-price-light.webp");
+          }
+
+          &.hydra {
+            background-image: url("~@/assets/img/desktop/subnav/ico-coin-hydra-light.webp");
+          }
+
+          &.draco {
+            background-image: url("~@/assets/img/desktop/subnav/ico-coin-draco-light.webp");
+          }
+
+          &.drain {
+            background-image: url("~@/assets/img/desktop/subnav/ico-coin-drain-light.webp");
+          }
+
+          &.hydra.payments {
+            background-image: url("~@/assets/img/desktop/subnav/ico-coin-hydra-payment-light.webp");
+          }
+        }
+      }
+
+      .logo {
+        width: 152px;
+        height: 41px;
+        background-image: url("~@/assets/img/desktop/subnav/logo-coin.webp");
+      }
+
+      .v-list-item {
+        min-height: 40px;
+        font-size: 20px;
+
+        &::before {
+          background-color: #fff;
+        }
+
+        &.v-list-item--active {
+          .text {
+            opacity: 1.0;
+          }
+
+        }
+      }
+
+      .text {
+        display: flex;
+        align-items: center;
+        height: 32px;
+        padding-left: 32px;
+        background-repeat: no-repeat;
+        background-position: 0 50%;
+        background-size: 28px 28px;
+        opacity: 0.6;
+        color: #fff;
+
+        &.price {
+          background-color: transparent;
+          background-image: url("~@/assets/img/desktop/subnav/ico-coin-price.webp");
+        }
+
+        &.hydra {
+          background-color: transparent;
+          background-image: url("~@/assets/img/desktop/subnav/ico-coin-hydra.webp");
+        }
+
+        &.draco {
+          background-color: transparent;
+          background-image: url("~@/assets/img/desktop/subnav/ico-coin-draco.webp");
+        }
+
+        &.drain {
+          background-color: transparent;
+          background-image: url("~@/assets/img/desktop/subnav/ico-coin-drain.webp");
+        }
+
+        &.hydra.payments {
+          background-size: 42px 28px;
+          padding-left: 46px;
+          background-image: url("~@/assets/img/desktop/subnav/ico-coin-hydra-payment.webp");
+        }
+      }
+    }
+  }
+
+  .subnav-block {
+    height: var(--navdsp-height);
+  }
+
+  .headroom--not-top {
+    .subnav {
+      &.coin {
+        &.light {
+          background-color: transparent !important;
+          backdrop-filter: blur(8px);
+        }
+      }
+    }
+  }
+}

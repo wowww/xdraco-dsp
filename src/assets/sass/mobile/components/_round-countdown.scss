@@ -1,0 +1,22 @@
+.round-countdown {
+  --countdown-font-size: 32px;
+  --countdown-font-color: #fff;
+
+  display: flex;
+  justify-content: center;
+  line-height: 1;
+  font-weight: 700;
+  font-size: var(--countdown-font-size);
+  color: var(--countdown-font-color);
+
+  &__time {
+    margin-left: 8px;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+  }
+  &--smaller {
+    --countdown-font-size: 28px;
+  }
+}

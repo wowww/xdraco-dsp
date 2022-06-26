@@ -1,0 +1,342 @@
+main.hydra-payment {
+  --payment-bg-color: #111;
+  --payment-top-title-color: #ffe600;
+  --payment-section-margin-y: 40px;
+  --payment-toggle-frame-width: 151px;
+  --payment-toggle-frame-height: 40px;
+
+  margin-top: var(--navdsp-height);
+  width: 100%;
+  background-color: var(--payment-bg-color);
+  font-family: 'Inter', sans-serif;
+
+  img {
+    max-width: 100%;
+    vertical-align: top;
+  }
+  
+  .contents {
+    padding-bottom: 80px;
+  }
+
+  .toggle-currency {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--payment-toggle-frame-width);
+    height: var(--payment-toggle-frame-height);
+    background: url("~@/assets/img/mobile/exchange-rate-card/bg-toggle-frame.webp") 50% 50% / cover no-repeat;
+
+    .v-tabs-bar {
+      height: auto;
+
+      .v-slide-group {
+        &__prev,
+        &__next {
+          display: none !important;
+        }
+      }
+    }
+  
+    .btn-currency {
+      position: relative;
+      width: 72px;
+      height: 33px;
+      min-width: auto;
+      max-width: none;
+      font-size: 0;
+  
+      &::after {
+        content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+      }
+  
+      &.hyd,
+      &[data-currency-value='hyd'] {
+        &::after {
+          background-image: url("~@/assets/img/mobile/exchange-rate-card/img-toggle-hyd-off.webp");
+          background-size: 59px 19px;
+        }
+      }
+      &.usd,
+      &[data-currency-value='usd'] {
+        &::after {
+          background-image: url("~@/assets/img/mobile/exchange-rate-card/img-toggle-usd-off.webp");
+          background-size: 44px 19px;
+        }
+      }
+  
+      &.currency--active,
+      &.v-tab--active {
+        &.hyd,
+        &[data-currency-value='hyd'] {
+          &::after {
+            background-image: url("~@/assets/img/mobile/exchange-rate-card/img-toggle-hyd-on.webp");
+            background-size: 60px 19px;
+          }
+        }
+        &.usd,
+        &[data-currency-value='usd'] {
+          &::after {
+            background-image: url("~@/assets/img/mobile/exchange-rate-card/img-toggle-usd-on.webp");
+            background-size: 45px 19px;
+          }
+        }
+  
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: url("~@/assets/img/mobile/exchange-rate-card/bg-toggle-on.webp") 0 0 / cover no-repeat;
+          box-shadow: 0 2px 2px 0 #00000066;
+          border-radius: 22px;
+          opacity: 1 !important;
+        }
+      }
+    }
+  }
+
+  .section {
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    max-width: 640px;
+
+    &__inner {
+      padding: var(--payment-section-margin-y) var(--section-padding-x);
+      border-top: 1px solid #c4c4c433;
+    }
+    &.section1 {
+      background: url("~@/assets/img/mobile/hydra-payment/bg-hydra-payment.webp") 50% 0 / auto 280px no-repeat;
+      text-align: center;
+
+      .section__inner {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border-top: 0;
+        padding: 120px 40px 40px;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        flex-flow: column wrap;
+        row-gap: 16px;
+        font-size: 48px;
+        font-weight: 700;
+        color: var(--payment-top-title-color);
+        line-height: 1;
+        text-transform: uppercase;
+
+        &::before {
+          content: '';
+          width: 112px;
+          height: 66px;
+          background: url("~@/assets/img/mobile/hydra-payment/logo-hydra-payment.webp") 0 0 / cover no-repeat;
+        }
+      }
+      .sub-title {
+        margin-top: 8px;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: normal;
+        color: var(--payment-top-title-color);
+      }
+
+      .desc {
+        font-size: 20px;
+        color: #fff;
+        font-weight: 700;
+        line-height: 1.4;
+
+        &:first-of-type {
+          margin-top: 40px;
+        }
+      }
+
+      .wrap-exchange-rate-card {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 16px;
+        width: calc(100% + 80px);
+        margin: 40px -80px 0;
+
+        .caution {
+          font-size: 12px;
+          line-height: normal;
+        }
+      }
+    }
+    &.section2 {
+      text-align: center;
+
+      .section__inner {
+        padding-right: 0;
+        padding-left: 0;
+      }
+      .section-title {
+        line-height: normal;
+      }
+      .tab-header {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 16px;
+        margin-bottom: 16px;
+        padding: 0 var(--section-padding-x);
+      }
+      .toggle-currency {
+        flex: none;
+      }
+      .v-tabs-items {
+        background-color: transparent !important;
+      }
+      .grid-product {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(49%, auto));
+        grid-auto-rows: minmax(304px, auto);
+        gap: 2px;
+
+        .grid-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          row-gap: 16px;
+          padding: 30px 10px;
+          background-image: linear-gradient(to bottom,  #171716 0%, #1d1d1a 100%);
+          color: #fff;
+        }
+        .gold-amount {
+          font-weight: 700;
+          line-height: 1.5;
+        }
+        .btn-payment {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 4px;
+          padding: 6px;
+          min-width: 144px;
+          border-radius: 32px;
+          border: 2px solid transparent;
+          background-image: linear-gradient(#1d1d1a, #1d1d1a), linear-gradient(to bottom, #977300 0%, rgba(255, 224, 124, 0.92) 21%, rgba(255, 245, 214, 0.81) 51%, rgba(140, 107, 0, 0.9) 69%, #ffd13b 100%);
+          background-origin: border-box;
+          background-clip: padding-box, border-box;
+          text-decoration: none;
+        }
+        .price {
+          line-height: 1.6;
+          font-size: 20px;
+          font-weight: 700;
+          color: #fff;
+        }
+      }
+    }
+    &.section3 {
+      .desc {
+        line-height: 1.63;
+      }
+      .wrap-desc {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 24px;
+        margin-top: 24px;
+      }
+    }
+    &.section4 {
+      .section-title {
+        margin-bottom: 24px;
+      }
+      .link-underline {
+        display: inline-block;
+        position: relative;
+        margin-top: 24px;
+        padding-right: 14px;
+        line-height: 1.5;
+        color: #fff;
+        vertical-align: top;
+        text-decoration: none;
+
+        &::before {
+          content: '';
+          position: absolute;
+          right: 0;
+          bottom: -2px;
+          left: 0;
+          border-top: 1px solid;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          top: calc(50% - 4px);
+          right: 0;
+          width: 9px;
+          height: 8px;
+          background: url("~@/assets/img/mobile/hydra-payment/icon-arrow.webp") 50% 50% / contain no-repeat;
+        }
+      }
+    }
+    &.section-video {
+      .section__inner {
+        border-top: 0;
+        padding: 0 0 40px 0;
+        left:  auto !important;
+        width: auto !important;
+      }
+      .wrap-video {
+        position: relative;
+        padding-top: 0;
+        transition: padding 0.3s;
+    
+        &.wrap-video--open {
+          padding-top: 56.25%;
+        }
+        iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .section-title {
+      font-size: 20px;
+      line-height: 1.6;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .desc {
+      color: #ffffff99;
+      line-height: 1.5;
+    }
+  }
+  .remark {
+    max-width: var(--section-inner-width);
+    padding: 0 var(--section-padding-x);
+    font-size: 24px;
+    color: #fff;
+    line-height: 1.17;
+    font-weight: 700;
+    text-align: center;
+
+    > em {
+      color: #edf203;
+      font-style: normal;
+    }
+  }
+}

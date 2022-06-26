@@ -1,0 +1,45 @@
+.mirage {
+  .boss-raid-detail {
+    margin: 0 auto;
+    width: 100%;
+    line-height: normal;
+
+    ol,
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .section-title {
+      padding: 16px 0;
+      line-height: normal;
+    }
+    hr {
+      background-color: #ffffff33;
+    }
+    
+    .wrap-my-mirage {
+      .util-list {
+        margin: 0 0 24px;
+        padding: 0;
+
+        .mirage-inventory {
+          column-gap: 1px;
+          height: 48px;
+
+          .mirage-inventory-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex: 1;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 12px 16px;
+          }
+
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

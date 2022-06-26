@@ -1,0 +1,169 @@
+.myitem {
+  //896 | 376, 520
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  //align-items: flex-start; //soldout
+
+  //판매중
+  &[data-sale-type='sale'] {
+  }
+  //판매완료
+  &[data-sale-type='soldout'],
+  &[data-sale-type='1'] {
+    //align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    .myitem-detail,
+    .item-info {
+      width: 100%;
+    }
+    .myitem-detail {
+      margin-top: 16px;
+    }
+  }
+  //봉인중
+  &[data-sale-type='seal'] {
+  }
+  //판매완료
+  &[data-sale-type='purchase'],
+  &[data-sale-type='3']{
+    flex-direction: column;
+    justify-content: flex-start;
+    .myitem-detail,
+    .item-info {
+      width: 100%;
+    }
+    .myitem-detail {
+      margin-top: 16px;
+    }
+  }
+
+  .myitem-detail {
+    .price {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-bottom: 3px;
+
+      dd {
+        .price {
+          font-size: 14px;
+          font-weight: 700;
+          color: #fff;
+        }
+
+        .us-dollar {
+          text-align: right;
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.5);
+        }
+      }
+    }
+    .list {
+      display: flex;
+      line-height: normal;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      li {
+        font-size: 12px;
+        font-weight: normal;
+        color: rgba(#fff, 0.5);
+        margin-left: 8px;
+        &:first-of-type {
+          margin-left: 0;
+        }
+        &.apply {
+          strong {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: -0.14px;
+            color: rgba(#fff, 0.4);
+            white-space: nowrap;
+          }
+          .item-more {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background: url('~@/assets/img/mobile/myitems/ico-more-light.webp') 50% 50% / contain no-repeat;
+          }
+        }
+        &.date {
+          strong {
+            font-size: 14px;
+            font-weight: normal;
+            color: #fff;
+          }
+          .item-more {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background: url('~@/assets/img/mobile/myitems/ico-more-light.webp') 50% 50% / contain no-repeat;
+          }
+        }
+        strong,
+        span {
+          display: block;
+        }
+        strong {
+          font-size: 16px;
+          margin-top: 4px;
+          color: #fff;
+        }
+      }
+    }
+
+    .spec {
+      line-height: normal;
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+        font-weight: normal;
+        color: #fff;
+        margin-top: 8px;
+
+        > span {
+          font-size: 12px;
+          font-weight: normal;
+          color: rgba(#fff, 0.5);
+        }
+        strong {
+          font-size: 14px;
+          &.negative {
+            color: #f00;
+          }
+          &.ico-darco.ico-xs {
+            font-size: 19px;
+          }
+        }
+        &:first-of-type {
+          margin-top: 0;
+        }
+        &.date {
+          strong {
+            font-size: 14px;
+            font-weight: normal;
+          }
+        }
+        &.seller {
+          .seller-info {
+            display: flex;
+            line-height: 1.1;
+            font-size: 14px;
+
+            .server {
+              margin-right: 4px;
+              color: rgba(#fff, .5);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,306 @@
+.v-application {
+  .contents.exdguide {
+    --section-inner-width: 960px;
+
+    //playbook Layout StyleSheet.
+    padding-top: var(--navexd-height);
+    min-height: 100vh;
+    background: url('~@/assets/img/desktop/playbook/exdplaybook-topbg.webp') 50% 0 / 1920px 700px no-repeat,
+      linear-gradient(to bottom, #030222 700px, #020222);
+    //linear-gradient(to bottom, #030222 700px, #020205);
+    //background-image: linear-gradient(to bottom, #030222, #020205); //배경이미지 밑단색 030222로 변경
+
+    //&::after {
+    //  content: '';
+    //  position: absolute;
+    //  //top: var(--navexd-height); //스크롤시에 부자연스러움.
+    //  top: 0;
+    //  height: 700px;
+    //  left: 0;
+    //  z-index: -1;
+    //  width: 100%;
+    //  opacity: 0;
+    //  background: url('~@/assets/img/desktop/playbook/exdplaybook-topbg.webp') 50% 0 / 1920px 700px no-repeat;
+    //  transform: translateY(-20px);
+    //  transition: opacity 0.3s ease-in-out 0.2s, transform 0.3s ease-out;
+    //}
+    .section {
+      &__inner {
+        padding: 0 24px;
+        box-sizing: content-box;
+      }
+    }
+
+    // for only playbook page
+    .init-playbook & {
+      //&:after {
+      //  opacity: 1;
+      //  transform: translate(0);
+      //}
+    }
+
+    //playbook common
+    .headword {
+      display: block;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: normal;
+      color: #fff;
+      margin-top: 120px;
+    }
+    .text-desc {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.33;
+      margin-top: 24px;
+    }
+
+    .wrap-define {
+      .define {
+        margin-top: 40px;
+        dt {
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 1.5;
+          color: #fff;
+        }
+        dd {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-top: 16px;
+
+          .desc {
+            font-size: 16px;
+            font-weight: normal;
+            line-height: 1.5;
+            color: rgba(#fff, 0.5);
+
+            .wrap-function {
+              display: block;
+              margin-top: 16px;
+              a {
+                display: inline-block;
+                font-size: 14px;
+                line-height: 1.71;
+                color: #fff;
+                border-bottom: 1px solid #fff;
+              }
+            }
+
+            ul {
+              list-style: none;
+              margin: 0;
+              padding: 0;
+              margin-top: 16px;
+              li {
+                position: relative;
+                font-size: 12px;
+                font-weight: normal;
+                line-height: 1.33;
+                padding-left: 16px;
+                margin-top: 8px;
+
+                &:first-of-type {
+                  margin-top: 0;
+                }
+                &::before {
+                  content: '';
+                  position: absolute;
+                  left: 6px;
+                  top: 6px;
+                  width: 2px;
+                  height: 2px;
+                  border-radius: 100%;
+                  background-color: rgba(#fff, 0.5);
+                }
+              }
+            }
+          }
+          .wrap-img {
+            flex: 0 0 460px;
+            width: 460px;
+            margin-left: 64px;
+            margin-top: -40px;
+          }
+        }
+      }
+      //draco Class image.zoom
+      .wrap-img {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        .area {
+        }
+
+        .wrap-image {
+          img {
+            display: block;
+            max-width: 100%;
+          }
+          &.by-viewer {
+            position: relative;
+            cursor: zoom-in;
+
+            &::before {
+              content: '';
+              position: absolute;
+              right: 0;
+              bottom: 0;
+              width: 40px;
+              height: 40px;
+              background: url('~@/assets/img/desktop/promotion/2112-exd/btn-viewer.webp') 0 0 / cover no-repeat;
+              opacity: 0;
+              transition: opacity 400ms ease;
+            }
+            &:hover {
+              &::before {
+                opacity: 1;
+              }
+            }
+          }
+        }
+        //zoom버튼으로 구성을 밖으로 뺌.
+        figcaption {
+          display: block;
+          font-size: 12px;
+          font-weight: normal;
+          line-height: 1.5;
+          color: rgba(#fff, 0.5);
+          text-align: center;
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .exdis {
+      padding-top: 79px;
+      .headword {
+        font-size: 72px;
+        font-weight: 700;
+        line-height: normal;
+        color: #fff;
+        margin-top: 0;
+      }
+      .text-desc {
+        margin-top: 24px;
+        font-size: 20px;
+        font-weight: normal;
+        line-height: 1.6;
+        color: rgba(#fff, 0.5);
+      }
+    }
+
+    .exd-youtube {
+      margin-top: 120px;
+
+      .banner-notice {
+        margin-bottom: 40px;
+        padding: 20px 24px;
+        background-color: rgba(255, 255, 255, 0.1);
+        min-height: 57px;
+
+        > p {
+          position: relative;
+          padding-left: 126px;
+          font-size: 13px;
+          line-height: 1.46;
+          color: rgba(255, 255, 255, 0.75);
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 102px;
+            height: 57px;
+            background: url('~@/assets/img/desktop/playbook/draco-to-hydra.webp') 0 0 / 100% no-repeat,
+          }
+
+          em {
+            font-weight: 600;
+          }
+        }
+      }
+      .wrap-youtube {
+        position: relative;
+        padding-top: 56.25%;
+        height: 0;
+        &.no-gutter {
+          padding-top: 0;
+          width: 960px;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+.dialog-exdevent {
+  width: 720px;
+
+  &.theme-dark {
+    background: url('~@/assets/img/desktop/promotion/2112-exd/bg-exd-event.webp') 50% 0 / 100% auto no-repeat,
+      linear-gradient(140deg, #362164 0%, #0f002f 50%, #362164 101%);
+    color: #fff;
+
+    .content {
+      padding-bottom: 40px;
+      color: rgba(#fff, 0.75);
+    }
+  }
+  .event-content {
+    .wrap-reward {
+      text-align: center;
+      line-height: normal;
+
+      .ticket {
+        display: inline-block;
+        margin-top: 50px;
+        vertical-align: top;
+      }
+      .message {
+        margin-top: 40px;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: normal;
+        color: #fff;
+      }
+      .desc {
+        display: block;
+        margin: 24px auto 0;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 1.71;
+        color: rgba(#fff, 0.5);
+        max-width: 560px;
+        text-align: center;
+      }
+    }
+    .wrap-reward + .wrap-button {
+      text-align: center;
+      margin-top: 40px;
+
+      .btn {
+        width: inherit;
+        min-width: 171px;
+      }
+    }
+  }
+}
+
+//(max-width: var(--section-inner-width))
+@media screen and (max-width: 960px) {
+  // 960이하인경우 DSP_playbook_mobile 960을 여기다가?
+  .v-application .contents.playbook {
+    .section.section1 {
+      .section__inner {
+        .wrap-title {
+          padding: 62px 24px 56px;
+        }
+        &::after {
+        }
+      }
+    }
+  }
+}

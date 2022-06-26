@@ -1,0 +1,26 @@
+.round-number {
+  min-width: 48px;
+  min-height: 48px;
+  border: solid 1px rgba(#fff, 0.2);
+  box-sizing: border-box;
+  line-height: normal;
+  padding-top: 5px;
+  line-height: normal;
+
+  strong,
+  span {
+    display: block;
+    padding-top: 2px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+  }
+  span {
+    font-size: 8px;
+  }
+  strong {
+    font-size: 22px;
+    line-height: 1;
+    letter-spacing: -0.44px;
+  }
+}

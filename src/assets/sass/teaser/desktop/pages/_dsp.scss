@@ -1,0 +1,151 @@
+.container {
+  .dsp {
+    // 상단 배경
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 480px;
+      background: url("~@/assets/img/desktop/dsp/bg-top.webp") 50% 0 / auto 100% no-repeat;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 1200ms 0.2s ease-in-out, transform 1200ms ease-out;
+    }
+
+    .section {
+      margin-top: 120px;
+      font-size: 24px;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+      &.section1 {
+        padding-top: 160px;
+        font-weight: 700;
+        color: #fff;
+
+        p {
+          margin-top: 32px;
+
+          &:first-of-type {
+            margin-top: 0;
+          }
+          &.text-introduce {
+            line-height: 56px;
+            font-size: 48px;
+          }
+          &.text-desc {
+            font-size: 28px;
+            color: rgba(#fff, .75);
+          }
+        }
+        .bi {
+          margin-bottom: 96px;
+          width: 341px;
+          height: 140px;
+          font-size: 0;
+          background: url("~@/assets/img/desktop/dsp/bi-dsp.webp") 50% 0 / auto 100% no-repeat;
+        }
+        .background {
+          position: relative;
+          margin-bottom: 80px;
+          height: 650px;
+          background: url("~@/assets/img/desktop/dsp/bg-dsp-main.webp") 50% 0 / auto 100% no-repeat;
+          opacity: 0;
+          transition: opacity 800ms .5s ease-in;
+
+          &::before,
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 5%;
+            left: 0;
+            width: 100%;
+            height: 35%;
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000);
+            mix-blend-mode: overlay;
+          }
+          &::after {
+            content: '';
+            height: calc(5% + 1px);
+            bottom: 0;
+            background-image: none;
+            background-color: #000;
+            mix-blend-mode: normal;
+          }
+        }
+      }
+      &.section2 {
+        p {
+          margin-top: 40px;
+          line-height: 1.8;
+
+          &.text-desc {
+            line-height: 1.334;
+          }
+          &.text-desc2 {
+            font-size: 16px;
+          }
+          &.text-desc3 {
+            font-size: 12px;
+          }
+        }
+      }
+      &.section3 {
+        .section__inner {
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 475px;
+            height: 290px;
+            background: url("~@/assets/img/desktop/dsp/bg-nolossgame.webp") 50% 0 / auto 100% no-repeat;
+          }
+        }
+        .headword {
+          margin-bottom: 32px;
+        }
+        .headword, 
+        .text-desc {
+          padding-right: 50%;
+        }
+        .wrap-image {
+          margin-top: 120px;
+        }
+        .wrap-youtube {
+          position: relative;
+          margin: 120px 0 200px;
+          padding-top: 56.15%;
+
+          iframe {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+          }
+        }
+      }
+    }
+
+    // load page
+    .init-dsp & {
+      &::before {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .section {
+        &.section1 {
+          .background {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

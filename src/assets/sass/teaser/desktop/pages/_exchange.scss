@@ -1,0 +1,270 @@
+.container {
+  .xdraco {
+    min-height: 100vh;
+
+    // 상단 배경
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 640px;
+      background: url("~@/assets/img/desktop/exchange/bg-top.jpg") 50% 0 / auto 100% no-repeat;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 1200ms 0.2s ease-in-out, transform 1200ms ease-out;
+    }
+    .link-detail {
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      margin-top: 24px;
+      vertical-align: top;
+      line-height: 1.5;
+      font-size: 16px;
+      color: #fff;
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #fff;
+      }
+      &::after {
+        content: '';
+        display: block;
+        margin-left: 10px;
+        width: 16px;
+        height: 16px;
+        background: url("~@/assets/img/desktop/exchange/icon-link-detail.webp") 50% 50% / cover no-repeat;
+      }
+    }
+    .section {
+      margin-top: 120px;
+      font-size: 24px;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+      &.section1 {
+        padding-top: 160px;
+        font-weight: 700;
+        color: #fff;
+
+        p {
+          margin-top: 32px;
+
+          &:first-of-type {
+            margin-top: 0;
+          }
+          &.text-introduce {
+            line-height: 56px;
+            font-size: 48px;
+          }
+          &.text-desc {
+            font-size: 28px;
+            color: rgba(#fff, .75);
+          }
+          &.delay-cause {
+            font-weight: 400;
+            font-size: 14px;
+            color: rgba(#fff, .75);
+          }
+        }
+        .bi {
+          margin-bottom: 80px;
+          width: 315px;
+          height: 120px;
+          font-size: 0;
+          // background: url("~@/assets/img/desktop/exchange/bi-xdraco.webp") 50% 0 / auto 100% no-repeat;
+          // background: url("~@/assets/img/desktop/exchange/bi-xdraco.svg") 50% 0 / auto 100% no-repeat;
+          background: url("~@/assets/img/desktop/exchange/bi-exd.svg") 50% 0 / auto 100% no-repeat;
+        }
+        .items {
+          margin: 120px 0 80px;
+          height: 528px;
+
+          .obj {
+            display: block;
+            position: relative;
+            margin-top: -124px;
+            width: 100%;
+            background-position-x: 0;
+            background-size: auto 100%;
+            background-repeat: repeat-x;
+            opacity: 0;
+            // transition: opacity 500ms .4s ease, background-position 600ms .8s ease-in-out, transform 300ms ease-in;
+            transition: opacity 500ms .4s ease, background-position 600ms .8s ease-in-out;
+            animation: row1 240s 0.1s ease-in-out paused infinite normal forwards;
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            }
+            &.obj1 {
+              z-index: 1;
+              height: 303px;
+              background-image: url("~@/assets/img/desktop/exchange/bg-row-card1.webp");
+              background-position-x: 100%;
+              animation-name: row1;
+
+              &::after {
+                background-image: linear-gradient(180deg, rgba(#000, 0) 15%, rgba(#000, .9) 57%);
+              }
+            }
+            &.obj2 {
+              z-index: 2;
+              height: 341px;
+              background-image: url("~@/assets/img/desktop/exchange/bg-row-card2.webp");
+              animation-name: row2;
+
+              &::after {
+                bottom: -40px;
+                height: 160px;
+                background-image: linear-gradient(180deg, rgba(#000, 0) 0%, #112 100%);
+              }
+            }
+            &:first-of-type {
+              margin-top: 0;
+            }
+            // 이전 디자인
+            // &.obj1 {
+            //   z-index: 1;
+            //   height: 96px;
+            //   background-image: url("~@/assets/img/desktop/exchange/bg-line1.webp");
+            //   background-position-x: 100%;
+            // }
+            // &.obj2 {
+            //   z-index: 2;
+            //   height: 120px;
+            //   background-image: url("~@/assets/img/desktop/exchange/bg-line2.webp");
+            // }
+            // &.obj3 {
+            //   z-index: 3;
+            //   height: 160px;
+            //   background-image: url("~@/assets/img/desktop/exchange/bg-line3.webp");
+            //   background-position-x: 100%;
+            // }
+            // &.obj4 {
+            //   z-index: 4;
+            //   height: 200px;
+            //   background-image: url("~@/assets/img/desktop/exchange/bg-line4.webp");
+            // }
+            // &:hover {
+            //   transform: translateY(-10px);
+            // }
+          }
+          &.init--animation {
+            .obj {
+              animation-play-state: running;
+            }
+          }
+        }
+      }
+      &.section2 {
+        .section__inner {
+          &::before,
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 180px;
+            height: 180px;
+            background: url("~@/assets/img/desktop/exchange/item-epic.webp") 0 0 / cover no-repeat;
+          }
+          &::after {
+            top: 79px;
+            right: 126px;
+            background-image: url("~@/assets/img/desktop/exchange/item-legendary.webp");
+          }
+        }
+        .wrap-define {
+          margin-top: 120px;
+
+          .define {
+            flex: 1;
+            max-width: 440px;
+
+            &::before,
+            &::after {
+              content: none;
+            }
+          }
+        }
+        p {
+          margin-top: 24px;
+
+          &.text-desc {
+            width: 574px;
+          }
+        }
+      }
+      &.section3 {
+        .wrap-define {
+          .define {
+            &::after {
+              background: url("~@/assets/img/desktop/exchange/icon-arrow.webp") 50% 50% / contain no-repeat;
+            }
+            &.seal::before {
+              background-image: url("~@/assets/img/desktop/exchange/item-seal.webp");
+            }
+            &.trade::before {
+              background-image: url("~@/assets/img/desktop/exchange/item-trade.webp");
+            }
+            &.redeem::before {
+              background-image: url("~@/assets/img/desktop/exchange/item-redeem.webp");
+            }
+          }
+        }
+      }
+    }
+
+    // when init App
+    .init-app & {
+      .define {
+        opacity: 1;
+      }
+    }
+
+    // for only intro-draco
+    .init-xdraco & {
+      &::before {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .section {
+        &.section1 {
+          .items {
+            .obj {
+              background-position-x: 50%;
+              opacity: 1;
+    
+              &.obj1 {
+                background-position-x: calc(50% + 112px);
+              }
+              // &.obj2 {
+              //   background-position-x: calc(50% + 70px);
+              // }
+              // &.obj4 {
+              //   background-position-x: calc(50% - 114px);
+              // }
+            }
+          }
+        }
+      }
+    }
+  }
+  .v-footer {
+    margin: 80px 0;
+  }
+}

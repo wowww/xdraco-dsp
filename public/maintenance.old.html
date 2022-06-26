@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>XDRACO DSP</title>
+<meta property="og:title" content="XDRACO" />
+<meta property="og:image" content="https://file.mir4global.com/mir4-nft/img/og-image.jpg" />
+<meta property="og:description" content="MIR4 X DRACO" />
+<meta name="twitter:title" content="XDRACO" />
+<meta name="twitter:image" content="https://file.mir4global.com/mir4-nft/img/og-image.jpg" />
+<meta name="twitter:description" content="MIR4 X DRACO" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+<style>
+html, body {
+  width: 100%;
+  height: 100%;
+}
+html {
+  background-color: #0b0b2a;
+}
+body {
+  margin: 0;
+  font-family: Roboto;
+}
+p {
+  margin: 0;
+}
+.wrap-maintenance {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  background: url('img/bg-maintenance.png') 50% 0 / 1600px 902px no-repeat;
+}
+.wrap-maintenance .bi {
+  margin-bottom: 35px;
+  width: 223px;
+  height: 80px;
+  font-size: 0;
+  background: url('img/bi-dsp.webp') 50% 50% / 100% auto no-repeat;
+}
+.wrap-maintenance .message {
+  line-height: 1.334;
+  font-size: 24px;
+}
+.wrap-maintenance .message .emp {
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-size: 40px;
+}
+.wrap-maintenance .footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+.wrap-maintenance .footer__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 400px;
+  height: 130px;
+}
+.wrap-maintenance .footer .copyright {
+  line-height: 1.2;
+  font-size: 12px;
+  color: #ffffff80;
+}
+.wrap-maintenance .footer .powered-by {
+  margin-top: 10px;
+  width: 118px;
+  height: 22px;
+  font-size: 0;
+  background: url(data:image/webp;base64,UklGRsQEAABXRUJQVlA4WAoAAAAQAAAA6wAAKwAAQUxQSCYEAAABkCpJciVJCQULNizYULChoKBgw4INCwrGv/djpvde6MwiYgL0X+Bi9o/kLSbAsVf71/GAuffWegDD/mXKzuyu2zWY27+LJaPosSf9X8VyVn3ciX8TSxZde8rnelKj/348rqv9Pnpudz23HzHYdFunGv1CO+uduS+SFneT5O5FMr89ldpHr5K30Tc7FXeXzH05Le5Fqtzm8tsYtLtB+wmVoft2qDOuysxyM2BICqiSAJcGt5KW5JyDyybJAclhFskh7RSSih/kHyuwByMUHLJjkdTY3ppxlpRwbAMg6gD8TgFNGtB0J5WJ/6GMoUtvUnQdM9XoksqMt4auF8CkDinpgO2BwywGaY90UE/FyjtWHpVyYeVBKd+w8tKGXx2YctPc0U5K0hblhzggqUFICmgPFLANaHoWpxrAUSUtsZ9qtFOPVZKNCdmLpC2KByFZTMh2sR6Q7ZNtQlZpj+WixfpJIGlbJVjEWtiwIygq7m6/AYeEtA8mqxrECNgkJ0+NcQqqZMkcO4SkQWeOJkvm2GFIqnCMHZ7NuY8EV6ddTOyT45CMqQWq4c6CU2c1gPYbUAA0PWtgZbJJqszynUEWySZ+ohdJgyjSAi4FQ9LyAYuknZCTp5XQpzOkmNhKNqesaHaW6CNljJdmZmZ/zYG0mxkRMaHJmTon63eCKkmDdkqdD1ySgk0Cl6R4tkuSM6WJSxrUbzjL3NqxjxVtqTxQn1QZ/aXL8ZoO2HVzHS45cRHU7yR+aoxTu0iW06Cd7DSetZOB1OiS5iwfJTAUY9/H3g710E7ISWmhvbSbmZXXHJjlJszMdP4Btxf15vYHFKa0MvTx4u5F2zy2liO07xrsUluklfWloeuXAqDd6f4HHHG5PTvisr6nwDXwz9ZwSQ5eZ3QdTRubLgf2G6hwTGb5xvGW6/6J6f47/clG10x97nRJmhRnNs0qa3aVh34DCbVB/2xhXiSrFubV/uCgnszt2XoyN2nip3gWJ2dKKnOu9C8oZpHUQgZrwXVfqTcdQtKELhmw/JwKqTLBPiqTJmkDU5lUqSTTJAOXGkeRtNOedEJSOahSsEtaeYZLZSckaXBg33C6rsEXljvL1K0Do+7AbPWA1EWOs72TUKUB4yNtcOwHNEkdYp90iH2SkkqSsU/SnliSsU/SJIfcD/LZQewT7OQQ+mpQrxJzdL9T79S4HMl5LlfX/kqFlOSASWv0J6oBM1znlhCrLGD2Ikk2EmY3SS38QjYSshdJ8oBsFvWuhbWEcF1O6ndKzuVipNa8a3Q9tTZGd1kdY2xFkrzemkqtVdJS6yrJa12kUmuVvNZVktZaF/1hE/uOLGc9PS6dob/6lV3ftmTYMz8Y+rsfrF+TDXIsN8WDuenvvszUmx6Qe2utx2S2or/8NfsrkrWYADm2on/iYqb/ywJWUDggeAAAAFAJAJ0BKuwALAA+XSSNRaOiIRwfxAA4BcS0hDgCwAPoA/gAPvIStYqGtxEJspO8AhLFexQiMSCsMEEDAf8ytVtIqNIK1ucvzJuTdQ18bvk25ycAAObvsPhP+LPmV+kAO3+9cv//s2X//boAAAjeaSqPiLjvPtYAAA==) 0 0/cover no-repeat;
+}
+
+@media screen and (max-width: 960px) {
+
+.wrap-maintenance .message {
+  font-size: 16px;
+}
+.wrap-maintenance .message .emp {
+  font-size: 24px;
+}
+.footer__inner {
+  width: 100%;
+  height: 80px;
+}
+
+}
+</style>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MQBL27T');</script>
+<!-- End Google Tag Manager -->
+</head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQBL27T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="wrap-maintenance">
+  <h2 class="bi">
+    asdf
+  </h2>
+  <div class="message">
+    <p class="emp">Prepare for the Unveiling</p>
+    <p>We are now preparing to bring you DSP Season 1</p>
+  </div>
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="copyright">© Wemade Co., Ltd. All rights reserved.</p>
+      <p class="powered-by">Powered by WEMIX</p>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

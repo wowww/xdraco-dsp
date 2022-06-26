@@ -1,0 +1,344 @@
+.v-application {
+  .contents.playbook {
+    --section-inner-width: 960px;
+
+    //playbook Layout StyleSheet.
+    padding-top: var(--navdsp-height);
+    min-height: 100vh;
+
+    //background.
+    //&:after, &:before
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    &:after {
+      z-index: -2;
+      top: 0;
+      height: 600px;
+      background: url('~@/assets/img/desktop/playbook/playbook-topbg.webp') 50% 0 / 1600px 600px no-repeat;
+      transition: opacity 0.3s ease-in-out 0.2s, transform 0.3s ease-out;
+    }
+    //&:before {
+    //  top: 469px;
+    //  height: 441px;
+    //  background: url('~@/assets/img/desktop/playbook/playbook-main.webp') 50% 0 / 1600px 441px no-repeat;
+
+    //  transition: opacity 0.6s ease-in-out 0.2s, transform 0.6s ease-out;
+    //}
+
+    //sub Navigation.
+    //sub-nav -> _nav-dsp.scss
+
+    .section {
+      &__inner {
+        padding: 0 24px;
+        box-sizing: content-box;
+      }
+    }
+
+    // for only playbook page
+    .init-playbook & {
+      &:after {
+        opacity: 1;
+        transform: translate(0);
+      }
+      .section.section1 {
+        .section__inner {
+          &:after {
+            opacity: 1;
+            transform: translate(0);
+          }
+        }
+      }
+    }
+
+    //playbook contents StyleSheet.
+    //playbook common
+    .headword {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: normal;
+      color: #fff;
+    }
+    .text-desc {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.33;
+      margin-top: 24px;
+    }
+
+    .wrap-define {
+      display: flex;
+      justify-content: space-between;
+
+      .define {
+        flex: 1;
+
+        dt {
+          font-size: 20px;
+          font-weight: 700;
+          line-height: 1;
+          color: #fff;
+        }
+        dd {
+          .text-desc {
+            font-size: 16px;
+            line-height: 1.25;
+          }
+        }
+      }
+    }
+
+    //헐 이게 배경이 아니라는군. 다국어 이슈로 수정
+    .section.section1 {
+      .section__inner {
+        padding: 0;
+        width: 100%;
+
+        &:after {
+          content: '';
+          position: relative;
+          display: block;
+          //left: 0;
+          //z-index: -1;
+          width: 100%;
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        &:after {
+          height: 441px;
+          background: url('~@/assets/img/desktop/playbook/playbook-main.webp') 50% 0 / 1600px 441px no-repeat;
+          transition: opacity 0.6s ease-in-out 0.2s, transform 0.6s ease-out;
+        }
+
+        .wrap-title {
+          width: var(--section-inner-width);
+          min-height: 300px;
+          margin: 0 auto;
+          padding: 62px 0 56px;
+        }
+      }
+    }
+
+    //objectStyle.
+    .wrap-title {
+      //min-height: 780px;
+      //padding-top: 62px;
+      color: #fff;
+      text-align: center;
+
+      .dsp-title {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 72px;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: -1px;
+        word-break: break-all;
+
+        &.line-break {
+          font-size: 54px;
+          letter-spacing: -2px;
+        }
+      }
+      .text-introduce {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 1.13;
+        margin-top: 16px;
+      }
+    }
+
+    .dsp-basic {
+      padding: 93px 0 120px;
+    }
+
+    .dsp-round {
+      padding: 0 0 120px;
+      .wrap-define {
+        margin-top: 40px;
+
+        .define {
+          max-width: 267px;
+          dd {
+            img {
+              display: block;
+              margin-top: 40px;
+            }
+            .text-desc {
+              margin-top: 40px;
+            }
+          }
+        }
+      }
+    }
+
+    .dsp-algorithm {
+      padding: 0 0 120px;
+
+      .text-desc {
+        max-width: 720px;
+      }
+      .wrap-formula {
+        margin-top: 64px;
+
+        small {
+          display: block;
+          font-size: 12px;
+          font-weight: normal;
+        }
+        .formula {
+          display: inline-block;
+          margin-top: 10px;
+        }
+        .formula-infograph {
+          display: inline-block;
+          margin-top: 64px;
+        }
+      }
+    }
+
+    .dsp-winning {
+      padding: 0 0 120px;
+
+      .text-desc {
+        max-width: 720px;
+      }
+      .wrap-formula {
+        margin-top: 64px;
+
+        small {
+          display: block;
+          font-size: 12px;
+          font-weight: normal;
+        }
+        .formula {
+          display: inline-block;
+          margin-top: 8px;
+        }
+        .wrap-graph {
+          list-style: none;
+          padding: 0;
+          margin: 80px 0 0;
+          display: flex;
+          justify-content: space-between;
+
+          li {
+            flex: 1;
+            max-width: 440px;
+
+            .text-desc {
+              min-height: 40px;
+              font-size: 12px;
+              line-height: 1.67;
+            }
+          }
+        }
+      }
+      .wrap-define {
+        margin-top: 120px;
+
+        .define {
+          max-width: 267px;
+
+          dd {
+            .text-desc {
+              margin-top: 16px;
+              font-size: 16px;
+              line-height: 1.38;
+              small {
+                display: block;
+                font-size: 12px;
+                font-weight: normal;
+                margin-top: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .dsp-rewards {
+      padding: 0 0 120px;
+
+      .text-desc {
+        max-width: 720px;
+        padding-bottom: 80px;
+      }
+      .wrap-define {
+        flex-direction: column;
+        margin-top: 62px;
+        .define {
+          position: relative;
+          dt,
+          dd {
+            max-width: 440px;
+          }
+          .wrap-img {
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
+          &.winnerdraw {
+            .wrap-img {
+              top: -72px;
+            }
+          }
+          &.rewards {
+            margin-top: 80px;
+          }
+        }
+      }
+
+      .wrap-formula {
+        margin-top: 64px;
+
+        small {
+          display: block;
+          font-size: 12px;
+          font-weight: normal;
+        }
+        .formula {
+          display: inline-block;
+          margin-top: 8px;
+        }
+      }
+    }
+
+    .dsp-youtube {
+      .wrap-youtube {
+        position: relative;
+        margin-top: 0;
+        padding-top: 56.25%;
+        height: 0;
+        &.no-gutter {
+          padding-top: 0;
+          width: 960px;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+//(max-width: var(--section-inner-width))
+@media screen and (max-width: 960px) {
+  // 960이하인경우 DSP_playbook_mobile 960을 여기다가?
+  .v-application .contents.playbook {
+    .section.section1 {
+      .section__inner {
+        .wrap-title {
+          padding: 62px 24px 56px;
+        }
+        &:after {
+        }
+      }
+    }
+  }
+}

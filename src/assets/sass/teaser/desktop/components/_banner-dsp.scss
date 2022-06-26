@@ -1,0 +1,102 @@
+.banner-dsp {
+  --banner-height: 460px;
+  --banner-boxsize: 102px;
+  --banner-inner-width: 582px;
+
+  display: block;
+  width: 100%;
+  height: var(--banner-height);
+  background: #020219 url("~@/assets/img/desktop/banner-dsp/bg-banner-dsp.webp") 50% 0 / auto 100% no-repeat;
+
+  &__inner {
+    margin: 0 auto;
+    width: var(--banner-inner-width);
+    color: #fff;
+  }
+  .subnav-dsp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .message {
+    display: flex;
+    align-items: flex-end;
+    height: 270px;
+    line-height: 1.2;
+    font-size: 48px;
+    font-weight: 700;
+  }
+  .information {
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+    padding: 0;
+    font-weight: 700;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin-right: 8px;
+      padding-top: 4px;
+      width: var(--banner-boxsize);
+      height: var(--banner-boxsize);
+      list-style: none;
+      line-height: 1;
+      font-size: 12px;
+      text-align: center;
+      letter-spacing: -0.24px;
+      background-position: 50% 50%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      box-sizing: border-box;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 30%;
+        left: 0;
+        border: 1px solid #aa00ff;
+        width: 71%;
+        height: 71%;
+        transform: rotate(-45deg) translateX(30%);
+        box-sizing: border-box;
+      }
+      .number {
+        font-weight: 700;
+        font-size: 32px;
+      }
+      &:not([class]) {
+        padding-top: 2px;
+
+        .number {
+          margin-bottom: 4px;
+        }
+      }
+      &.legendary {
+        background-image: url("~@/assets/img/desktop/banner-dsp/bg-legendary-badge.webp");
+
+        &::before {
+          content: none;
+        }
+      }
+      &.epic {
+        background-image: url("~@/assets/img/desktop/banner-dsp/bg-epic-badge.webp");
+
+        &::before {
+          content: none;
+        }
+      }
+      &.rare {
+        background-image: url("~@/assets/img/desktop/banner-dsp/bg-rare-badge.webp");
+
+        &::before {
+          content: none;
+        }
+      }
+    }
+  }
+}

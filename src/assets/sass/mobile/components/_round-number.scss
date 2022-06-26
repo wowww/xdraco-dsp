@@ -1,0 +1,28 @@
+.round-number {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: solid 1px rgba(#fff, 0.2);
+  box-sizing: border-box;
+  // padding-top: 10px;
+  line-height: normal;
+
+  strong,
+  span {
+    display: block;
+    color: #fff;
+    text-align: center;
+  }
+  span {
+    font-size: 10px;
+  }
+  strong {
+    margin-top: 2px;
+    font-size: 22px;
+    line-height: 1;
+    letter-spacing: -0.44px;
+  }
+}

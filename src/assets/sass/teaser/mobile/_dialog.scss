@@ -1,0 +1,112 @@
+.v-dialog {
+  .btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    .v-btn__content {
+      opacity: 1 !important;
+    }
+  }
+
+  // for PLAY NOW!
+  &.dialog-playnow {
+    color: #fff;
+    background-color: #000;
+
+    .inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: calc(64px + 6vh) 0 6vh;
+      min-height: 100%;
+    }
+    .btn-close {
+      top: 10px;
+      right: 10px;
+    }
+    .content {
+      position: relative;
+      width: 282px;
+    }
+    .title {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      width: auto;
+      font-size: 16px !important;
+      font-weight: 700;
+
+      &::before {
+        content: "";
+        display: block;
+        margin-right: 9px;
+        width: 77px;
+        height: 24px;
+        background: url("~@/assets/img/mobile/dialog/bi-mir4.png") 0 0 / cover no-repeat;
+      }
+    }
+    .sub-title {
+      margin: 48px 0 16px;
+      line-height: 1.2;
+      font-size: 12px;
+      font-weight: 700;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+    .wrap-link {
+      .link {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 16px;
+        width: 100%;
+        height: 74px;
+        line-height: 0;
+        font-size: 0;
+
+        &::before {
+          content: '';
+          display: block;
+        }
+        &.google {
+          background: url("~@/assets/img/mobile/dialog/btn-google.webp") 50% 0 / cover no-repeat;
+        }
+        &.apple {
+          background: url("~@/assets/img/mobile/dialog/btn-apple.webp") 50% 0 / cover no-repeat;
+        }
+        &.galaxy {
+          background: url("~@/assets/img/mobile/dialog/btn-galaxy.webp") 50% 0 / cover no-repeat;
+        }
+        &.windows {
+          height: 79px;
+          background: url("~@/assets/img/mobile/dialog/btn-windows.webp") 50% 0 / cover no-repeat;
+        }
+        &.steam {
+          height: 79px;
+          background: url("~@/assets/img/mobile/dialog/btn-steam.webp") 50% 0 / cover no-repeat;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (orientation: landscape) {
+
+.v-dialog {
+  // for PLAY NOW!
+  &.dialog-playnow {
+    display: block;
+
+    .content {
+      padding: 60px 0;
+    }
+  }
+}
+
+}

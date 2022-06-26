@@ -1,0 +1,14 @@
+.gnb {
+  &__bi,
+  &__list,
+  &__list-external,
+  .btn-header {
+    visibility: hidden;
+  }
+}
+.v-toolbar {
+  .bi,
+  .btn {
+    visibility: hidden;
+  }
+}

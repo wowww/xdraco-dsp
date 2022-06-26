@@ -1,0 +1,429 @@
+$tabs-item-min-width: 40px !default;
+
+.exchange-list {
+  .list-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 36px 0 16px;
+    height: 40px;
+
+    .v-tabs:not(.v-tabs--vertical):not(.v-tabs--right) > .v-slide-group--is-overflowing.v-tabs-bar--is-mobile:not(.v-slide-group--has-affixes) {
+      .v-slide-group__prev, .v-slide-group__next {
+        display: none;
+      }
+    }
+
+    &__title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+
+      span.total-count {
+        color: var(--color-exd);
+      }
+    }
+    &__more {
+      flex: 0;
+      white-space: nowrap;
+      color: #fff;
+      font-size: 14px;
+    }
+    &__tab {
+      flex: initial;
+      width: auto;
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(#fff, 0.4);
+
+      &.v-tabs {
+        .v-tabs-bar {
+          height: 24px;
+
+          .v-tab {
+            padding: 0 1px;
+            min-width: auto;
+            font-size: 14px;
+            color: inherit;
+            text-transform: initial;
+            letter-spacing: 0;
+
+            &.v-tab--active {
+              color: #fff;
+            }
+          }
+        }
+        .v-tabs-bar__content {
+          gap: 24px;
+        }
+        .v-tabs-slider-wrapper {
+          height: 1px !important;
+
+          .v-tabs-slider {
+            background-color: #fff;
+          }
+        }
+      }
+    }
+    &:first-of-type {
+      margin-top: 24px;
+    }
+
+    // for NFT
+    .nft & {
+      .v-tabs .v-tabs-bar .v-tabs-slider-wrapper {
+        color: #ee0000;
+      }
+
+      .total-count {
+        color: var(--color-epic);
+      }
+    }
+  }
+  .wrap-button {
+    margin-top: 24px;
+
+    .btn-viewmore {
+      @include btn-viewmore($width: 100%);
+    }
+  }
+
+  // 가격 설정 레이어팝업
+  .layer-price-range {
+    position: absolute;
+    top: 56px;
+    left: 16px;
+    // left: calc(50% - 180px);
+    width: calc(100% - 32px);
+    max-width: 360px;
+    z-index: 1;
+    border: 1px solid #333346;
+    padding: 24px;
+    font-size: 12px;
+    color: #fff;
+    background-color: #0f0f25;
+    box-shadow: 0 40px 40px 0 rgba(#000, 0.5);
+
+    .filter-status {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      letter-spacing: -0.14px;
+
+      dd {
+        display: flex;
+        gap: 4px;
+        color: #fff;
+      }
+    }
+    .wrap-range {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+
+      .input-range {
+        border: 1px solid #fff;
+        border-radius: 0;
+
+        .v-input__control {
+          height: 40px;
+
+          .v-input__slot {
+            margin: 0;
+            border-radius: 0;
+            color: #fff;
+            background-color: rgba(#000, 0.25);
+
+            input,
+            .v-text-field__slot {
+              color: inherit;
+              font-weight: 700;
+            }
+            .v-label {
+              color: rgba(#fff, 0.5);
+              font-weight: 400;
+              font-size: 14px;
+            }
+          }
+          .v-text-field__details {
+            display: none;
+          }
+          .v-input__icon {
+            &::before {
+              content: '';
+              display: block;
+              width: 20px;
+              height: 20px;
+              background: url('~@/assets/img/ico-filter-draco.webp') 50% 50% / contain no-repeat;
+            }
+            .v-icon {
+              display: none;
+            }
+          }
+        }
+
+        // 화폐 - 위믹스크레딧
+        &.wemixcredit {
+          .v-input__icon {
+            &::before {
+              background-image: url('~@/assets/img/desktop/popup/ico-wemix-credit-logo.webp');
+            }
+          }
+        }
+      }
+    }
+    .wrap-button {
+      display: flex;
+      gap: 4px;
+      margin-top: 0;
+
+      .btn {
+        flex: 1;
+        height: 40px;
+        font-size: 14px;
+      }
+    }
+    .filter-range-slider {
+      margin: 12px 0 6px;
+      color: #fff;
+
+      .v-slider,
+      .v-input__slot {
+        margin: 0;
+      }
+    }
+  }
+
+  // 아이템 리스트
+  .list-item {
+    display: grid;
+    justify-items: center;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(156px, 1fr));
+    padding: 0;
+
+    .list-item__item {
+      position: relative;
+      list-style: none;
+
+      > .link {
+        display: block;
+      }
+      .wrap-button {
+        display: flex;
+        margin-top: 9px;
+
+        .btn {
+          flex: 1;
+        }
+      }
+      .traded-info {
+        margin: 24px auto 0;
+        padding-bottom: 4px;
+        max-width: 156px;
+        color: #fff;
+        font-size: 12px;
+
+        .wrap-price {
+          font-size: 18px;
+        }
+        .seller {
+          margin-top: 8px;
+
+          dt {
+            @include hidden();
+          }
+          dd {
+            line-height: 1.1;
+
+            &.seller-nickname {
+              margin-bottom: 4px;
+              font-size: 14px;
+              font-weight: 700;
+            }
+            &.seller-info {
+              display: flex;
+              gap: 8px;
+              opacity: 0.5;
+            }
+          }
+        }
+        .date {
+          margin-top: 8px;
+          line-height: 1.1;
+        }
+      }
+      .wrap-price {
+        .add-inside {
+          color: #fff;
+          font-size: 20px;
+          letter-spacing: -0.4px;
+        }
+
+        &::after {
+          display: inline-block;
+          position: relative;
+          top: 2px;
+          left: 2px;
+          border-radius: 50%;
+          width: 8px;
+          height: 8px;
+          background-color: #ff0000;
+          vertical-align: top;
+        }
+        //최고가 거래에 신규 건 추가시 빨간점 표시 (24시간 동안 표시)
+        &[data-new='true'] {
+          &::after {
+            content: '';
+          }
+        }
+      }
+      .date-complete-stake {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        margin-top: 15px;
+        line-height: 1.1;
+        font-size: 12px;
+        color: #fff;
+
+        .date {
+          font-size: 14px;
+          font-weight: 700;
+        }
+      }
+      .card {
+        margin: 0 auto;
+      }
+    }
+    &.recommended {
+      // margin-bottom: 64px;
+
+      .list-item__item {
+        position: relative;
+        padding: 24px 28px;
+        width: 296px;
+        background-image: linear-gradient(to top, rgba(#5b61ff, 0.15), rgba(167, 80, 255, 0) 50%),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
+        box-shadow: inset 0 1px 0 0 rgba(#fff, 0.1);
+        box-sizing: border-box;
+
+        .traded-info {
+          text-align: center;
+
+          .seller-info {
+            justify-content: center;
+          }
+        }
+      }
+    }
+    &.rank {
+      .list-item__item {
+        background-color: rgba(#fff, 0.05);
+
+        .rank-badge {
+          position: absolute;
+          top: 0;
+          left: 8px;
+          z-index: 1;
+          padding-top: 13px;
+          width: 58px;
+          height: 64px;
+          line-height: 1.1;
+          color: #000;
+          font-size: 16px;
+          font-weight: 700;
+          text-align: center;
+          background: url('~@/assets/img/bg-toprank-badge.webp') 0 0 / contain no-repeat;
+          box-sizing: border-box;
+          transform: translateZ(1px);
+
+          &::first-letter {
+            font-size: 24px;
+          }
+        }
+        .nft & {
+          .rank-badge {
+            color: #fff;
+            background-image: url('~@/assets/img/bg-toprank-badge-nft.webp');
+          }
+        }
+      }
+    }
+    &.swiper-container {
+      gap: 0;
+
+      // swiper.js에서 gap을 계산하지 못하는 이슈로 margin으로 대체
+      // .swiper-wrapper {
+      //   gap: 2px;
+      // }
+      .swiper-slide {
+        margin-left: 2px;
+        width: auto;
+
+        &:first-of-type {
+          margin-left: var(--intro-draco-padding);
+        }
+        &:last-of-type {
+          margin-right: var(--intro-draco-padding);
+        }
+      }
+    }
+    &:not(.recommended) {
+      li {
+        overflow: hidden;
+        width: 100%;
+      }
+    }
+    &:empty {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 220px;
+
+      &::before {
+        content: attr(data-empty-message);
+        display: block;
+        font-size: 16px;
+        color: rgba(#fff, 0.5);
+      }
+    }
+  }
+
+  // Tab for traded
+  .tab-traded.v-tabs {
+    .v-tabs-bar {
+      .v-tab {
+        padding: 0;
+        font-size: 16px;
+        color: rgba(#fff, 0.6);
+        text-transform: none;
+        letter-spacing: 0;
+
+        &.v-tab--active {
+          color: #fff;
+        }
+      }
+      .v-slide-group__content {
+        gap: 24px;
+      }
+      .v-tabs-slider-wrapper {
+        bottom: 8px;
+        height: 1px !important;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.exd-ranking {
+  padding-top: 34px;
+}
+
+#wrapFilterList {
+  .v-menu__content {
+    width: calc(100% - (var(--intro-draco-padding) * 2));
+    max-width: 540px;
+  }
+}

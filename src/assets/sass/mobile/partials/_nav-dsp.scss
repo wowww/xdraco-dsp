@@ -1,0 +1,155 @@
+.is-mobile {
+  .subnav {
+    display: block;
+    border-bottom: 1px solid rgba(#fff, 0.1);
+    width: 100%;
+
+    .wrap-sub {
+      position: relative;
+      width: 100%;
+      height: var(--navdsp-height);
+      margin: 0 auto;
+    }
+    .nav-dsp {
+      background-color: transparent;
+      color: #fff;
+      width: 100%;
+  
+      .v-list-item-group {
+        display: flex;
+        width: 100%;
+      }
+      .v-list-item {
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        min-height: var(--navdsp-height);
+        padding: 0;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: normal;
+
+        &::before {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: inherit;
+          bottom: 0px;
+          content: '';
+          pointer-events: none;
+          transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+          background-color: red;
+          width: 100%;
+          height: 2px;
+        }
+        span {
+          white-space: nowrap;
+        }
+        &:not(.v-list-item--active):not(.v-list-item--disabled) {
+          color: rgba(#fff, .4) !important;
+        }
+        &.v-list-item--active {
+          &::before,
+          &:hover::before {
+            opacity: 1;
+          }
+        }
+      }
+  
+      &.v-sheet.v-list:not(.v-sheet--outlined) {
+        box-shadow: none;
+      }
+      &.v-list {
+        padding: 0;
+      }
+    }
+
+    // for EXD
+    &.exd {
+      .nav-dsp {
+        .v-list-item {
+          &::before {
+            background-color: var(--color-exd);
+          }
+        }
+      }
+    }
+
+    // for Coin3
+    &.coin {
+      .nav-dsp {
+        .v-list-item {
+          &::before {
+            background-color: #fff;
+          }
+
+          &.v-list-item--active {
+            .text {
+              opacity: 1;
+            }
+          }
+        }
+      }
+      .text {
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: 28px 28px;
+        font-size: 0;
+        opacity: 0.4;
+
+        &.price {
+          background-image: url("~@/assets/img/mobile/subnav/ico-coin-price.webp");
+        }
+
+        &.hydra {
+          background-image: url("~@/assets/img/mobile/subnav/ico-coin-hydra.webp");
+        }
+
+        &.draco {
+          background-image: url("~@/assets/img/mobile/subnav/ico-coin-draco.webp");
+        }
+
+        &.drain {
+          background-image: url("~@/assets/img/mobile/subnav/ico-coin-drain.webp");
+        }
+        &.hydra.payments {
+          background-size: 42px 28px;
+          background-image: url("~@/assets/img/mobile/subnav/ico-coin-hydra-payment.webp");
+        }
+      }
+      &.light {
+        border-bottom-color: rgba(0, 0, 0, 0.1);
+
+        .nav-dsp {
+          .v-list-item {
+            &::before {
+              background-color: #000;
+            }
+          }
+        }
+        .text {
+          &.price {
+            background-image: url("~@/assets/img/mobile/subnav/ico-coin-price-light.webp");
+          }
+          &.hydra {
+            background-image: url("~@/assets/img/mobile/subnav/ico-coin-hydra-light.webp");
+          }
+          &.draco {
+              background-image: url("~@/assets/img/mobile/subnav/ico-coin-draco-light.webp");
+          }
+          &.drain {
+              background-image: url("~@/assets/img/mobile/subnav/ico-coin-drain-light.webp");
+          }
+          &.hydra.payments {
+            background-image: url("~@/assets/img/mobile/subnav/ico-coin-hydra-payment-light.webp");
+          }
+        }
+      }
+    }
+  }
+  .subnav-block {
+    height: var(--navdsp-height);
+  }
+}

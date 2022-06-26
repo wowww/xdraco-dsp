@@ -1,0 +1,282 @@
+.container {
+  .xdraco {
+    min-height: 100vh;
+
+    // 상단 배경
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 380px;
+      background: url("~@/assets/img/mobile/exchange/bg-top.webp") 50% 0 / auto 100% no-repeat;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: opacity 1200ms 0.4s ease-in-out, transform 1200ms ease-out;
+    }
+    .link-detail {
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      margin-top: 12px;
+      padding-bottom: 2px;
+      border-bottom: 1px solid #fff;
+      vertical-align: top;
+      line-height: 1.71;
+      font-size: 14px;
+      color: #fff;
+
+      &::after {
+        content: '';
+        display: block;
+        margin-left: 10px;
+        width: 16px;
+        height: 16px;
+        background: url("~@/assets/img/mobile/exchange/icon-link-detail.webp") 50% 50% / cover no-repeat;
+      }
+    }
+    .section {
+      margin-top: 80px;
+      font-size: 16px;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+      &.section1 {
+        font-weight: 700;
+        color: #fff;
+
+        p {
+          margin-top: 16px;
+
+          &:first-of-type {
+            margin-top: 0;
+          }
+          &.text-introduce {
+            line-height: 32px;
+            font-size: 24px;
+          }
+          &.text-desc {
+            font-size: 18px;
+            color: rgba(#fff, .75);
+          }
+          &.delay-cause {
+            font-weight: 400;
+            font-size: 14px;
+            color: rgba(#fff, .75);
+          }
+        }
+        .bi {
+          margin-bottom: 40px;
+          width: 179px;
+          height: 68px;
+          font-size: 0;
+          // background: url("~@/assets/img/mobile/exchange/bi-xdraco.webp") 50% 0 / auto 100% no-repeat;
+          background: url("~@/assets/img/mobile/exchange/bi-exd.svg") 50% 0 / auto 100% no-repeat;
+        }
+        .items {
+          @include no-gutter();
+          margin-top: 70px;
+          margin-bottom: 111px;
+
+          .obj {
+            display: block;
+            position: relative;
+            margin-top: -36px;
+            width: 100%;
+            background-position-x: 0;
+            background-size: auto 100%;
+            background-repeat: repeat-x;
+            opacity: 0;
+            transition: opacity 500ms .4s ease, background-position 600ms .8s ease-in-out;
+            animation: row1 240s 0.1s ease-in-out paused infinite normal forwards;
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+            }
+            &.obj1 {
+              z-index: 1;
+              height: 150px;
+              background-image: url("~@/assets/img/mobile/exchange/bg-row-card1.webp");
+              background-position-x: 100%;
+              animation-name: row1;
+
+              &::after {
+                background-image: linear-gradient(180deg, rgba(#000, 0) 5%, rgba(#000, .9) 68%);
+              }
+            }
+            &.obj2 {
+              z-index: 2;
+              height: 180px;
+              background-image: url("~@/assets/img/mobile/exchange/bg-row-card2.webp");
+              animation-name: row2;
+
+              &::after {
+                bottom: -20px;
+                height: 100px;
+                background-image: linear-gradient(180deg, rgba(#000, 0) 0%, #112 77%);
+              }
+            }
+            &:first-of-type {
+              margin-top: 0;
+            }
+            // 이전 디자인
+            // &.obj1 {
+            //   z-index: 1;
+            //   height: 62px;
+            //   background-image: url("~@/assets/img/mobile/exchange/bg-line1.webp");
+            //   background-position-x: 100%;
+            // }
+            // &.obj2 {
+            //   z-index: 2;
+            //   height: 78px;
+            //   background-image: url("~@/assets/img/mobile/exchange/bg-line2.webp");
+            // }
+            // &.obj3 {
+            //   z-index: 3;
+            //   height: 104px;
+            //   background-image: url("~@/assets/img/mobile/exchange/bg-line3.webp");
+            //   background-position-x: 100%;
+            // }
+            // &.obj4 {
+            //   z-index: 4;
+            //   height: 130px;
+            //   background-image: url("~@/assets/img/mobile/exchange/bg-line4.webp");
+            // }
+          }
+          &.init--animation {
+            .obj {
+              animation-play-state: running;
+            }
+          }
+        }
+      }
+      &.section2 {
+        .section__inner {
+          // padding-top: 30px;
+          padding-top: clamp(30px, 8vw, 70px);
+
+          &::before,
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 78px;
+            height: 78px;
+            background: url("~@/assets/img/mobile/exchange/item-epic.webp") 0 0 / cover no-repeat;
+          }
+          &::after {
+            top: 30px;
+            right: 54px;
+            background-image: url("~@/assets/img/mobile/exchange/item-legendary.webp");
+          }
+          > .headword {
+            padding-right: 130px;
+          }
+        }
+        .wrap-define {
+          .define {
+            flex: 1;
+            margin-top: 40px;
+            max-width: 440px;
+            
+            &::before,
+            &::after {
+              content: none;
+            }
+          }
+        }
+        p {
+          margin-top: 24px;
+
+          &.text-desc {
+            margin-bottom: 60px;
+            font-size: 20px;
+          }
+        }
+      }
+      &.section3 {
+        .wrap-define {
+          margin-top: 24px;
+
+          .define {
+            position: relative;
+            // max-width: 283px;
+
+            dt {
+              // margin: 76px 0 16px;
+              margin-bottom: 16px;
+            }
+            dd {
+              line-height: 1.5;
+            }
+            &.seal::after {
+              height: 110px;
+              background-image: url("~@/assets/img/mobile/exchange/item-seal.webp");
+            }
+            &.trade::after {
+              background-image: url("~@/assets/img/mobile/exchange/item-trade.webp");
+            }
+            &.redeem::after {
+              background-image: url("~@/assets/img/mobile/exchange/item-redeem.webp");
+            }
+            &:first-of-type {
+              &::before {
+                content: none;
+              }
+              dt {
+                margin-top: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // when init App
+    .init-app & {
+      .define {
+        opacity: 1;
+      }
+    }
+
+    // for only intro-draco
+    .init-xdraco & {
+      &::before {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .section {
+        &.section1 {
+          .items {
+            .obj {
+              background-position-x: 50%;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 560px) {
+
+.container {
+  .xdraco {
+    // 상단 배경
+    &::before {
+      height: 380px;
+    }
+  }
+}
+
+}

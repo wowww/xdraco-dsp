@@ -1,0 +1,440 @@
+.wrap-mywarehouse {
+  .not-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 291px;
+    padding-top: 24px;
+    text-align: center;
+
+    p {
+      font-size: 14px;
+      line-height: 20px;
+      color: #999999;
+    }
+    .bottom-btns {
+      margin-top: 16px;
+      a {
+        display: block;
+        position: relative;
+        height: 35px;
+        line-height: 35px;
+        padding: 0 24px 0 107px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+
+        &:after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 99px;
+          height: 35px;
+          background: url("~@/assets/img/desktop/mywarehouse/logo.webp") 50% 50% /
+            cover no-repeat;
+        }
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 6px;
+          right: 0;
+          width: 20px;
+          height: 20px;
+          background: url("~@/assets/img/desktop/mywarehouse/icon-link.webp")
+            50% 50% / cover no-repeat;
+        }
+      }
+    }
+  }
+  .list-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    background-color: #020219;
+
+    &__title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      em {
+        color: #a0f;
+        margin-right: 4px;
+      }
+    }
+  }
+  .list-myitem {
+    margin-top: 8px;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0 13px;
+      border-bottom: 1px solid rgba($color: #fff, $alpha: 0.15);
+
+      .btn-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 8px 0;
+
+        button {
+          width: 72px;
+          height: 32px;
+          font-size: 12px;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+
+  .dialog-stake {
+    &.theme-dark {
+      .content {
+        .info-round {
+          padding: 16px 0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .wrap-list {
+          margin: 15px 0;
+          .notice {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .dialog-stake {
+    &.collectible {
+      .content {
+        .card-content {
+          .wrap-char {
+            margin-bottom: 0;
+
+            .wrap-detail {
+              .title {
+                margin-top: 16px;
+                font-size: 20px !important;
+                line-height: 24px;
+                text-align: center;
+              }
+              .detail-card {
+                margin-top: 16px;
+              }
+              .detail-desc {
+                margin-top: 16px;
+                line-height: 24px;
+                text-align: center;
+              }
+              .detail-change {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 8px;
+                background-color: rgba($color: #000000, $alpha: 0.4);
+                gap: 0 24px;
+
+                .change-box {
+                  display: flex;
+                  align-items: center;
+                  flex-direction: column;
+                  padding: 10px 0;
+                  text-align: left;
+                  font-size: 12px;
+                  gap: 0 8px;
+
+                  > div {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 4px 0;
+                    margin-top: 8px;
+
+                    .server {
+                      line-height: 14px;
+                      font-size: 12px;
+                    }
+                    .name {
+                      line-height: 19px;
+                      font-size: 16px;
+                      font-weight: bold;
+                    }
+                    .lv-job {
+                      line-height: 14px;
+                      font-size: 12px;
+                      color: rgba($color: #fff, $alpha: 0.5);
+
+                      span {
+                        position: relative;
+                        padding-left: 5px;
+                        padding-right: 5px;
+
+                        &::before {
+                          content: "";
+                          display: block;
+                          position: absolute;
+                          top: 50%;
+                          left: 0;
+                          transform: translateY(-50%);
+                          width: 1px;
+                          height: 10px;
+                          background-color: rgba($color: #fff, $alpha: 0.1);
+                        }
+                        &:first-child {
+                          padding-left: 0;
+
+                          &::before {
+                            display: none;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                .change {
+                  font-size: 0;
+                  width: 24px;
+                  height: 24px;
+                  background: url("~@/assets/img/desktop/mywarehouse/icon-change.webp")
+                    50% 50% / cover no-repeat;
+                }
+              }
+              .detail-desc-sm {
+                margin-top: 16px;
+                font-size: 12px;
+                text-align: center;
+              }
+            }
+          }
+          .wrap-button {
+            position: inherit;
+            margin-top: 16px;
+            font-size: 24px;
+
+            .btn {
+              display: flex;
+              flex-direction: row;
+
+              .ico-sm {
+                display: flex;
+                align-items: center;
+                padding-left: 22px;
+                font-size: 16px;
+
+                &::before {
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+              .sub-txt {
+                margin-left: 8px;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .wrap-button {
+    margin-top: 24px;
+
+    .btn-viewmore {
+      @include btn-viewmore($width: 100%);
+    }
+  }
+
+  // 가격 설정 레이어팝업
+  .layer-price-range {
+    position: absolute;
+    top: 56px;
+    left: 16px;
+    // left: calc(50% - 180px);
+    width: calc(100% - 32px);
+    max-width: 360px;
+    z-index: 1;
+    border: 1px solid #333346;
+    padding: 24px;
+    font-size: 12px;
+    color: #fff;
+    background-color: #0f0f25;
+    box-shadow: 0 40px 40px 0 rgba(#000, 0.5);
+
+    .filter-status {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      letter-spacing: -0.14px;
+
+      dd {
+        display: flex;
+        gap: 4px;
+        color: #fff;
+      }
+    }
+    .wrap-range {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+
+      .input-range {
+        border: 1px solid #fff;
+        border-radius: 0;
+
+        .v-input__control {
+          height: 40px;
+
+          .v-input__slot {
+            margin: 0;
+            border-radius: 0;
+            color: #fff;
+            background-color: rgba(#000, 0.25);
+
+            input,
+            .v-text-field__slot {
+              color: inherit;
+              font-weight: 700;
+            }
+            .v-label {
+              color: rgba(#fff, 0.5);
+              font-weight: 400;
+              font-size: 14px;
+            }
+          }
+          .v-text-field__details {
+            display: none;
+          }
+          .v-input__icon {
+            &::before {
+              content: "";
+              display: block;
+              width: 20px;
+              height: 20px;
+              background: url("~@/assets/img/ico-filter-draco.webp") 50% 50% /
+                contain no-repeat;
+            }
+            .v-icon {
+              display: none;
+            }
+          }
+        }
+
+        // 화폐 - 위믹스크레딧
+        &.wemixcredit {
+          .v-input__icon {
+            &::before {
+              background-image: url("~@/assets/img/desktop/popup/ico-wemix-credit-logo.webp");
+            }
+          }
+        }
+      }
+    }
+    .wrap-button {
+      display: flex;
+      gap: 4px;
+      margin-top: 0;
+
+      .btn {
+        flex: 1;
+        height: 40px;
+        font-size: 14px;
+      }
+    }
+    .filter-range-slider {
+      margin: 12px 0 6px;
+      color: #fff;
+
+      .v-slider,
+      .v-input__slot {
+        margin: 0;
+      }
+    }
+  }
+
+  // 아이템 리스트
+  .list-item {
+    display: grid;
+    justify-items: center;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(156px, 1fr));
+    padding: 0;
+
+    li {
+      .card {
+        margin: 0 auto;
+      }
+      .btn-wrap {
+        display: flex;
+        justify-content: space-between;
+        gap: 2px;
+        margin-top: 9px;
+
+        button {
+          flex: 1;
+          height: 40px;
+          font-size: 12px;
+          font-weight: normal;
+        }
+      }
+    }
+    &:not(.recommended) {
+      li {
+        overflow: hidden;
+        width: 100%;
+      }
+    }
+    &:empty {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 220px;
+
+      &::before {
+        content: attr(data-empty-message);
+        display: block;
+        font-size: 16px;
+        color: rgba(#fff, 0.5);
+      }
+    }
+  }
+
+  // Tab for traded
+  .tab-traded.v-tabs {
+    .v-tabs-bar {
+      .v-tab {
+        padding: 0;
+        font-size: 16px;
+        color: rgba(#fff, 0.6);
+        text-transform: none;
+        letter-spacing: 0;
+
+        &.v-tab--active {
+          color: #fff;
+        }
+      }
+      .v-slide-group__content {
+        gap: 24px;
+      }
+      .v-tabs-slider-wrapper {
+        bottom: 8px;
+        height: 1px !important;
+        color: #fff;
+      }
+    }
+  }
+
+  &.for-list {
+    .wrap-swiper {
+      &.sticky {
+        top: 0 !important;
+      }
+    }
+  }
+}

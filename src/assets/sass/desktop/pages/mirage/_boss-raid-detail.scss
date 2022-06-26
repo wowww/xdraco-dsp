@@ -1,0 +1,33 @@
+.mirage {
+  .boss-raid-detail {
+    line-height: normal;
+
+    ol,
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .section-title {
+      padding: 16px 0;
+      line-height: normal;
+    }
+    hr {
+      margin: 32px 0;
+      background-color: #ffffff33;
+    }
+    .wrap-my-mirage {
+      .util-list {
+        .mirage-inventory {
+          column-gap: 24px;
+
+          .currency {
+            button[class*=btn-] {
+              margin-left: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

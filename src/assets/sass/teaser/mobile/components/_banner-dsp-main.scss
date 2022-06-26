@@ -1,0 +1,67 @@
+.banner-dsp-main {
+  --banner-height: 400px;
+  --banner-boxsize: 102px;
+  --btn-padding-x: 16px;
+  --btn-height: 56px;
+  --btn-fontsize: 20px;
+  --btn-color: 255, 255, 255; // not working HEX in rgba()
+
+  display: block;
+  position: relative;
+  width: 100%;
+  height: var(--banner-height);
+  background-image: url("~@/assets/img/mobile/banner-dsp-main/bg-banner.webp"), 
+    linear-gradient(to bottom, #010101, #0A0128);
+  background-position: 50% 0;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .title {
+    width: 157px;
+    height: 64px;
+    font-size: 0 !important;
+    background: url("~@/assets/img/mobile/banner-dsp-main/bi-banner.webp") 0 0 / cover no-repeat;
+  }
+  .message {
+    display: flex;
+    align-items: flex-end;
+    margin: 16px 0 32px;
+    line-height: 1.24;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  .link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 var(--btn-padding-x);
+    min-width: 60px;
+    width: 220px;
+    height: var(--btn-height);
+    line-height: 1.2;
+    color: rgb(var(--btn-color));
+    font-weight: 700;
+    font-size: var(--btn-fontsize);
+    background-color: #aa00ff;
+
+    &::after {
+      content: '';
+      display: block;
+      margin-left: 4px;
+      width: 16px;
+      height: 16px;
+      background: url("~@/assets/img/mobile/banner-dsp-main/icon-link-arrow.webp") 0 0 / cover no-repeat;
+    }
+  }
+}

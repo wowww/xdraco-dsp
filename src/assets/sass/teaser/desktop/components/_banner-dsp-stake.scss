@@ -1,0 +1,71 @@
+.banner-dsp-stake {
+  --banner-height: 459px;
+  --banner-boxsize: 102px;
+  --banner-inner-width: 582px;
+  --btn-padding-x: 16px;
+  --btn-height: 56px;
+  --btn-fontsize: 20px;
+  --btn-color: 255, 255, 255; // not working HEX in rgba()
+
+  display: block;
+  position: relative;
+  width: 100%;
+  height: var(--banner-height);
+  background: url("~@/assets/img/desktop/banner-dsp-stake/bg-dsp-stake.webp"), 
+    linear-gradient(to bottom, #010101, #0A0128);
+    // 50% 0 / auto 100% no-repeat
+  background-position: 50% 0;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 30px;
+    width: var(--banner-inner-width);
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .title {
+    width: 136px;
+    height: 56px;
+    font-size: 0 !important;
+    background: url("~@/assets/img/desktop/banner-dsp-stake/bi-dsp-stake.webp") 0 0 / cover no-repeat;
+  }
+  .message {
+    display: flex;
+    align-items: flex-end;
+    margin: 8px 0 24px;
+    line-height: 1;
+    font-size: 80px;
+    font-weight: 700;
+  }
+  .link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 var(--btn-padding-x);
+    min-width: 60px;
+    width: 220px;
+    height: var(--btn-height);
+    line-height: 1.2;
+    color: rgb(var(--btn-color));
+    font-weight: 700;
+    font-size: var(--btn-fontsize);
+    background-color: #aa00ff;
+
+    &::after {
+      content: '';
+      display: block;
+      margin-left: 4px;
+      width: 16px;
+      height: 16px;
+      background: url("~@/assets/img/desktop/banner-dsp-stake/icon-link-arrow.webp") 0 0 / cover no-repeat;
+    }
+  }
+}

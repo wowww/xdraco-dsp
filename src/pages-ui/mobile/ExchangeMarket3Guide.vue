@@ -1,0 +1,237 @@
+<template>
+  <main class="contents" :class="'market bg-' + rankType">
+    <section class="section">
+      <div class="section__inner">
+        <div class="subnav-block"></div>
+        <div class="exchange-market add-float">
+          <div class="wrap-addition">
+            <!-- 디자인파트에서 원하는 기능인거 같습니다. -->
+            <!-- https://renatodeleao.github.io/vue-sticky-directive/ -->
+            <!-- https://codesandbox.io/s/mm4olmxkrx -->
+            <div class="wrap-card">
+              <Card itemType="legendary"></Card>
+            </div>
+
+            <div class="option-detail">
+              <div class="wrap-item-desc">
+                <!-- 모듈로 만들기 -->
+                <ItemManual itemName="Protection Bauble" showType="rankonly" :rankType="rankType" snCode="Serial NO.#12345678"></ItemManual>
+
+                <!-- wrap-button price-button -->
+              </div>
+
+              <!-- 액티브 정령보물 옵션 정보 -->
+              <div class="wrap-fire">
+                <ul class="list">
+                  <li>
+                    <strong>Fire Spirit exclusive</strong>
+                  </li>
+                  <li>
+                    <strong>Decent Fire's Soul</strong>
+                    <p>
+                      10% chance to increase <em class="point">Accuracy</em> by <span class="time">70</span> for <span class="time">15sec</span> on
+                      attack Cool 15 sec.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="wrap-seller">
+                <!-- compo. -->
+                <h3 class="title">seller</h3>
+
+                <!-- components(?) -->
+                <div class="seller">
+                  <CharInfo character="warrior" name="charactername" server="ASIA 123"></CharInfo>
+                  <div class="sale">
+                    판매중
+                    <strong>12</strong>
+                  </div>
+                  <div class="completed">
+                    거래완료
+                    <strong>24</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="wrap-suggest">
+            <div class="suggest-header">
+              <h2 class="title">Suggested Sales</h2>
+              <div class="suggest-item">
+                <ItemInfo itemCategory="grade-5" itemName="Shineworld Dragon Gloves" itemCount="+10"></ItemInfo>
+                <div class="function">
+                  <a href="#"><span class="view-more">VIEW MORE</span></a>
+                </div>
+              </div>
+            </div>
+            <div class="suggest-list">
+              <ul class="list">
+                <!-- profile-arbalist.webp -->
+                <!-- profile-warrior.webp -->
+                <!-- profile-sorcerer.webp -->
+                <!-- profile-taoist.webp -->
+                <!-- profile-lancer.webp -->
+                <li class="list-header">
+                  <div class="price"><em>Sale Price</em></div>
+                  <div class="enhance"><em>Enhance</em></div>
+                  <div class="score"><em>Power Score</em></div>
+                  <div class="char-info"><em>Seller ID</em></div>
+                </li>
+                <li>
+                  <div class="price">
+                    <strong class="ico-hydra ico-ss add-inside"><span>555,185,100555,185,100</span></strong>
+                  </div>
+                  <div class="enhance"><strong>+12</strong></div>
+                  <div class="score"><strong>11,563</strong></div>
+                  <CharInfo character="warrior" name="Warriworry" server=""></CharInfo>
+                </li>
+                <li>
+                  <div class="price">
+                    <strong class="ico-hydra ico-ss add-inside"><span>9,185,100</span></strong>
+                  </div>
+                  <div class="enhance"><strong>+12</strong></div>
+                  <div class="score"><strong>11,563</strong></div>
+                  <CharInfo character="taoist" name="woerekwkk" server=""></CharInfo>
+                </li>
+                <li>
+                  <div class="price">
+                    <strong class="ico-hydra ico-ss add-inside"><span>5,185,100</span></strong>
+                  </div>
+                  <div class="enhance"><strong>+5</strong></div>
+                  <div class="score"><strong>11,563</strong></div>
+                  <CharInfo character="arbalist" name="aaaabbbaaac" server=""></CharInfo>
+                </li>
+                <li>
+                  <div class="price">
+                    <strong class="ico-hydra ico-ss add-inside"><span>185,100</span></strong>
+                  </div>
+                  <div class="enhance"><strong>+3</strong></div>
+                  <div class="score"><strong>11,563</strong></div>
+                  <CharInfo character="warrior" name="qwertyuip34" server=""></CharInfo>
+                </li>
+                <li>
+                  <div class="price">
+                    <strong class="ico-hydra ico-ss add-inside"><span>180,000</span></strong>
+                  </div>
+                  <div class="enhance"><strong>+0</strong></div>
+                  <div class="score"><strong>8,563</strong></div>
+                  <CharInfo character="warrior" name="asdfghjklpoiasdfghjklpoi" server=""></CharInfo>
+                </li>
+              </ul>
+
+              <div class="wrap-button">
+                <button type="button" class="btn-viewmore">VIEW MORE</button>
+              </div>
+            </div>
+          </div>
+          <div class="wrap-overall">
+            <div class="overall-header">
+              <h2 class="title">‘Shineworld Dragon Gloves’ Overall Stats</h2>
+            </div>
+            <div class="overall-list">
+              <ul>
+                <li>
+                  <ItemTransprice
+                    itemTranstitle="최근 거래 가격"
+                    itemDraco="305,000"
+                    itemRate="400,000"
+                    itemDate="10.16. 2021 08:24 UTC"
+                    showType="normal"
+                  ></ItemTransprice>
+                </li>
+                <li>
+                  <ItemTransprice
+                    itemTranstitle="최고 거래가"
+                    itemDraco="210,000"
+                    itemRate="400,000"
+                    itemDate="10.16. 2021 08:24 UTC"
+                    showType="normal"
+                  ></ItemTransprice>
+                </li>
+                <li>
+                  <ItemTransprice
+                    itemTranstitle="평균 거래 가격"
+                    itemDraco="190,050"
+                    itemRate="400,000"
+                    itemDate="10.16. 2021 08:24 UTC"
+                    showType="normal"
+                  ></ItemTransprice>
+                </li>
+                <li>
+                  <ItemTransprice itemTranstitle="이번달 거래량" itemDraco="246" showType="monthly"></ItemTransprice>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <Footer></Footer>
+
+    <div class="float-bottom">
+      <div class="sale-item">
+        <!-- ItemInfo -->
+        <div class="wrap-buy">
+          <div class="price">
+            <strong class="ico-hydra ico-sm add-inside">150,000</strong>
+            <span class="rate">$ 400,000</span>
+          </div>
+          <button type="button" @click="dialogBuyItem = true" class="btn btn-primary-exd">구매하기</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</template>
+
+<script>
+import { defineComponent } from '@vue/composition-api';
+import Footer from '@/partials/common/Footer';
+import CharInfo from '@/components-ui/mobile/CharInfo';
+import ItemInfo from '@/components-ui/mobile/ItemInfo';
+import ItemManual from '@/components-ui/mobile/ItemManual';
+import ItemTransprice from '@/components-ui/mobile/ItemTransprice';
+import Card from '@/components-ui/common/Card';
+
+export default defineComponent({
+  props: {},
+  components: {
+    Card,
+    Footer,
+    CharInfo,
+    ItemInfo,
+    ItemManual,
+    ItemTransprice,
+  },
+  data: () => ({
+    number: 0,
+    isDevelopment: process.env.NODE_ENV === 'development',
+    dialogBuyItem: false,
+    optionsList: [
+      { ico: 'defskill', name: 'Add Def Skill Damage', rate: '5.3%' },
+      { ico: 'magic', name: 'ADD Magic Damage', rate: '1.2%' },
+      { ico: 'atk', name: 'Monster ATK DMG Boost', rate: '498' },
+      { ico: 'dmg', name: 'PvP DMG Reduction', rate: '498' },
+    ],
+    optionsPowerList: [
+      { ico: 'HP', name: 'HP', rate: '2,501' },
+      { ico: 'accuracy', name: 'Accuracy', rate: '498' },
+      { ico: 'monatk', name: 'Monster ATK DMG Boost', rate: '9.6%' },
+      { ico: 'monatk', name: 'Monster ATK DMG Boost', rate: '9.6%' },
+      { ico: 'pvpdmg', name: 'PvP DMG Reduction', rate: '5.4%' },
+    ],
+    // Category: ['legendary', 'epic', 'rare'],
+    Category: ['grade-5', 'grade-4', 'grade-3'],
+  }),
+  methods: {},
+  created() {
+    const N = Math.floor(Math.random() * 3);
+    this.rankType = this.Category[N];
+  },
+});
+</script>
+
+<style lang="scss">
+@import '~@/assets/sass/mobile/app.scss';
+@import '~@/assets/sass/mobile/ui-guide.scss';
+</style>
